@@ -1,0 +1,74 @@
+version: '3.8'
+services:
+  activemq:
+    restart: always
+    image: apache/activemq-artemis:latest
+    container_name: activemq
+    ports:
+      - "1883:1883"
+      - "8161:8161"
+      - "61616:61616"
+      - "5672:5672"
+    environment:
+      ARTEMIS_USER: admin
+      ARTEMIS_PASSWORD: admin
+    volumes:
+      - ./artemis:/var/lib/artemis-instance
+
+  postgres:
+    restart: always
+    image: postgres:latest
+    container_name: postgres
+    environment:
+      POSTGRES_DB: mensageria_DB
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: 123
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+  equipment-app:
+    restart: always
+    build:
+      context: equipamento/docker
+      dockerfile: Dockerfile
+    container_name: equipamento
+    ports:
+      - "8084:8084"
+    depends_on:
+      - producer-app
+
+  producer-app:
+    restart: always
+    build:
+      context: producer-app/docker
+      dockerfile: Dockerfile
+    container_name: producer-app
+    ports:
+      - "8083:8083"
+    depends_on:
+      - activemq
+
+  consumer-app:
+    restart: always
+    build:
+      context: consumer-app/docker
+      dockerfile: Dockerfile
+    container_name: consumer-app
+    ports:
+      - "8082:8082"
+    depends_on:
+      - activemq
+      - postgres
+    environment:
+      AMQP_HOST: activemq
+      AMQP_PORT: 5672
+      AMQP_USERNAME: admin
+      AMQP_PASSWORD: admin
+      QUARKUS_DATASOURCE_JDBC_URL: jdbc:postgresql://postgres:5432/mensageria_DB
+      QUARKUS_DATASOURCE_USERNAME: admin
+      QUARKUS_DATASOURCE_PASSWORD: 123
+
+volumes:
+  postgres-data:

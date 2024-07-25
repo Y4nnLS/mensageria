@@ -1,0 +1,645 @@
+2024-07-17 13:41:05,449 INFO  [org.apache.activemq.artemis.integration.bootstrap] AMQ101000: Starting ActiveMQ Artemis Server version 2.35.0
+2024-07-17 13:41:05,679 INFO  [org.apache.activemq.artemis.core.server] AMQ221000: Primary message broker is starting with configuration Broker Configuration (clustered=false,journalDirectory=data/journal,bindingsDirectory=data/bindings,largeMessagesDirectory=data/large-messages,pagingDirectory=data/paging)
+2024-07-17 13:41:05,816 INFO  [org.apache.activemq.artemis.core.server] AMQ221012: Using AIO Journal
+2024-07-17 13:41:06,162 INFO  [org.apache.activemq.artemis.core.server] AMQ221057: Global Max Size is being adjusted to 1/2 of the JVM max size (-Xmx). being defined as 1073741824
+2024-07-17 13:41:06,326 INFO  [org.apache.activemq.artemis.core.server] AMQ221043: Protocol module found: [artemis-server]. Adding protocol support for: CORE
+2024-07-17 13:41:06,330 INFO  [org.apache.activemq.artemis.core.server] AMQ221043: Protocol module found: [artemis-amqp-protocol]. Adding protocol support for: AMQP
+2024-07-17 13:41:06,331 INFO  [org.apache.activemq.artemis.core.server] AMQ221043: Protocol module found: [artemis-hornetq-protocol]. Adding protocol support for: HORNETQ
+2024-07-17 13:41:06,332 INFO  [org.apache.activemq.artemis.core.server] AMQ221043: Protocol module found: [artemis-mqtt-protocol]. Adding protocol support for: MQTT
+2024-07-17 13:41:06,334 INFO  [org.apache.activemq.artemis.core.server] AMQ221043: Protocol module found: [artemis-openwire-protocol]. Adding protocol support for: OPENWIRE
+2024-07-17 13:41:06,335 INFO  [org.apache.activemq.artemis.core.server] AMQ221043: Protocol module found: [artemis-stomp-protocol]. Adding protocol support for: STOMP
+2024-07-17 13:41:06,486 INFO  [org.apache.activemq.artemis.core.server] AMQ221034: Waiting indefinitely to obtain primary lock
+2024-07-17 13:41:06,487 INFO  [org.apache.activemq.artemis.core.server] AMQ221035: Primary Server Obtained primary lock
+2024-07-17 13:41:07,077 INFO  [org.apache.activemq.artemis.core.server] AMQ221080: Deploying address DLQ supporting [ANYCAST]
+2024-07-17 13:41:07,114 INFO  [org.apache.activemq.artemis.core.server] AMQ221003: Deploying ANYCAST queue DLQ on address DLQ
+2024-07-17 13:41:07,324 INFO  [org.apache.activemq.artemis.core.server] AMQ221080: Deploying address ExpiryQueue supporting [ANYCAST]
+2024-07-17 13:41:07,326 INFO  [org.apache.activemq.artemis.core.server] AMQ221003: Deploying ANYCAST queue ExpiryQueue on address ExpiryQueue
+2024-07-17 13:41:08,892 INFO  [org.apache.activemq.artemis.core.server] AMQ221020: Started EPOLL Acceptor at 0.0.0.0:61616 for protocols [CORE,MQTT,AMQP,STOMP,HORNETQ,OPENWIRE]
+2024-07-17 13:41:09,081 INFO  [org.apache.activemq.artemis.core.server] AMQ221020: Started EPOLL Acceptor at 0.0.0.0:5445 for protocols [HORNETQ,STOMP]
+2024-07-17 13:41:09,153 INFO  [org.apache.activemq.artemis.core.server] AMQ221020: Started EPOLL Acceptor at 0.0.0.0:5672 for protocols [AMQP]
+2024-07-17 13:41:09,288 INFO  [org.apache.activemq.artemis.core.server] AMQ221020: Started EPOLL Acceptor at 0.0.0.0:1883 for protocols [MQTT]
+2024-07-17 13:41:09,327 INFO  [org.apache.activemq.artemis.core.server] AMQ221020: Started EPOLL Acceptor at 0.0.0.0:61613 for protocols [STOMP]
+2024-07-17 13:41:09,334 INFO  [org.apache.activemq.artemis.core.server] AMQ221007: Server is now active
+2024-07-17 13:41:09,335 INFO  [org.apache.activemq.artemis.core.server] AMQ221001: Apache ActiveMQ Artemis Message Broker version 2.35.0 [0.0.0.0, nodeID=3734ec0b-4442-11ef-bb6d-0242ac140002] 
+2024-07-17 13:41:09,383 INFO  [org.apache.activemq.artemis] AMQ241003: Starting embedded web server
+2024-07-17 13:41:11,600 INFO  [org.apache.activemq.hawtio.branding.PluginContextListener] Initialized activemq-branding plugin
+2024-07-17 13:41:12,977 INFO  [org.apache.activemq.hawtio.plugin.PluginContextListener] Initialized artemis-plugin plugin
+2024-07-17 13:41:20,623 INFO  [io.hawt.HawtioContextListener] Initialising hawtio services
+2024-07-17 13:41:20,678 INFO  [io.hawt.system.ConfigManager] Configuration will be discovered via system properties
+2024-07-17 13:41:20,693 INFO  [io.hawt.jmx.JmxTreeWatcher] Welcome to Hawtio 2.17.7
+2024-07-17 13:41:20,742 INFO  [io.hawt.web.auth.AuthenticationConfiguration] Starting hawtio authentication filter, JAAS realm: "activemq" authorized role(s): "amq" role principal classes: "org.apache.activemq.artemis.spi.core.security.jaas.RolePrincipal"
+2024-07-17 13:41:20,798 INFO  [io.hawt.web.auth.LoginRedirectFilter] Hawtio loginRedirectFilter is using 1800 sec. HttpSession timeout
+2024-07-17 13:41:20,870 INFO  [org.apache.activemq.artemis] AMQ241001: HTTP Server started at http://0.0.0.0:8161
+2024-07-17 13:41:20,871 INFO  [org.apache.activemq.artemis] AMQ241002: Artemis Jolokia REST API available at http://0.0.0.0:8161/console/jolokia
+2024-07-17 13:41:20,872 INFO  [org.apache.activemq.artemis] AMQ241004: Artemis Console available at http://0.0.0.0:8161/console
+2024-07-17 13:48:39,819 INFO  [io.hawt.web.auth.LoginServlet] Hawtio login is using 1800 sec. HttpSession timeout
+2024-07-17 13:48:41,239 INFO  [io.hawt.web.auth.keycloak.KeycloakServlet] Keycloak integration is disabled
+2024-07-17 13:48:41,402 INFO  [io.hawt.web.proxy.ProxyServlet] Proxy servlet is disabled
+2024-07-17 13:48:41,472 INFO  [io.hawt.web.servlets.JolokiaConfiguredAgentServlet] Jolokia overridden property: [key=policyLocation, value=file:/var/lib/artemis-instance/./etc/jolokia-access.xml]
+2024-07-17 13:48:45,675 WARN  [io.hawt.system.JaasAuthenticator] Login failed due to: User does not exist: ad
+2024-07-17 13:48:48,727 INFO  [io.hawt.web.auth.LoginServlet] Logging in user: admin
+2024-07-17 13:53:56,438 INFO  [org.apache.activemq.artemis] AMQ241005: Stopping embedded web server
+2024-07-17 13:53:56,469 INFO  [io.hawt.HawtioContextListener] Destroying hawtio services
+2024-07-17 13:53:57,239 INFO  [org.apache.activemq.hawtio.plugin.PluginContextListener] Destroyed artemis-plugin plugin
+2024-07-17 13:53:57,651 INFO  [org.apache.activemq.hawtio.branding.PluginContextListener] Destroyed activemq-branding plugin
+2024-07-17 13:53:58,117 INFO  [org.apache.activemq.artemis] AMQ241006: Stopped embedded web server
+2024-07-17 13:53:58,216 INFO  [org.apache.activemq.artemis.core.server] AMQ221002: Apache ActiveMQ Artemis Message Broker version 2.35.0 [3734ec0b-4442-11ef-bb6d-0242ac140002] stopped, uptime 12 minutes
+2024-07-17 13:56:14,614 INFO  [org.apache.activemq.artemis.integration.bootstrap] AMQ101000: Starting ActiveMQ Artemis Server version 2.35.0
+2024-07-17 13:56:14,736 INFO  [org.apache.activemq.artemis.core.server] AMQ221000: Primary message broker is starting with configuration Broker Configuration (clustered=false,journalDirectory=data/journal,bindingsDirectory=data/bindings,largeMessagesDirectory=data/large-messages,pagingDirectory=data/paging)
+2024-07-17 13:56:14,836 INFO  [org.apache.activemq.artemis.core.server] AMQ221012: Using AIO Journal
+2024-07-17 13:56:15,082 INFO  [org.apache.activemq.artemis.core.server] AMQ221057: Global Max Size is being adjusted to 1/2 of the JVM max size (-Xmx). being defined as 1073741824
+2024-07-17 13:56:15,186 INFO  [org.apache.activemq.artemis.core.server] AMQ221043: Protocol module found: [artemis-server]. Adding protocol support for: CORE
+2024-07-17 13:56:15,189 INFO  [org.apache.activemq.artemis.core.server] AMQ221043: Protocol module found: [artemis-amqp-protocol]. Adding protocol support for: AMQP
+2024-07-17 13:56:15,190 INFO  [org.apache.activemq.artemis.core.server] AMQ221043: Protocol module found: [artemis-hornetq-protocol]. Adding protocol support for: HORNETQ
+2024-07-17 13:56:15,190 INFO  [org.apache.activemq.artemis.core.server] AMQ221043: Protocol module found: [artemis-mqtt-protocol]. Adding protocol support for: MQTT
+2024-07-17 13:56:15,192 INFO  [org.apache.activemq.artemis.core.server] AMQ221043: Protocol module found: [artemis-openwire-protocol]. Adding protocol support for: OPENWIRE
+2024-07-17 13:56:15,193 INFO  [org.apache.activemq.artemis.core.server] AMQ221043: Protocol module found: [artemis-stomp-protocol]. Adding protocol support for: STOMP
+2024-07-17 13:56:15,296 INFO  [org.apache.activemq.artemis.core.server] AMQ221034: Waiting indefinitely to obtain primary lock
+2024-07-17 13:56:15,297 INFO  [org.apache.activemq.artemis.core.server] AMQ221035: Primary Server Obtained primary lock
+2024-07-17 13:56:16,109 INFO  [org.apache.activemq.artemis.core.server] AMQ221080: Deploying address DLQ supporting [ANYCAST]
+2024-07-17 13:56:16,111 INFO  [org.apache.activemq.artemis.core.server] AMQ221003: Deploying ANYCAST queue DLQ on address DLQ
+2024-07-17 13:56:16,118 INFO  [org.apache.activemq.artemis.core.server] AMQ221080: Deploying address ExpiryQueue supporting [ANYCAST]
+2024-07-17 13:56:16,120 INFO  [org.apache.activemq.artemis.core.server] AMQ221003: Deploying ANYCAST queue ExpiryQueue on address ExpiryQueue
+2024-07-17 13:56:17,367 INFO  [org.apache.activemq.artemis.core.server] AMQ221020: Started EPOLL Acceptor at 0.0.0.0:61616 for protocols [CORE,MQTT,AMQP,STOMP,HORNETQ,OPENWIRE]
+2024-07-17 13:56:17,471 INFO  [org.apache.activemq.artemis.core.server] AMQ221020: Started EPOLL Acceptor at 0.0.0.0:5445 for protocols [HORNETQ,STOMP]
+2024-07-17 13:56:17,498 INFO  [org.apache.activemq.artemis.core.server] AMQ221020: Started EPOLL Acceptor at 0.0.0.0:5672 for protocols [AMQP]
+2024-07-17 13:56:17,566 INFO  [org.apache.activemq.artemis.core.server] AMQ221020: Started EPOLL Acceptor at 0.0.0.0:1883 for protocols [MQTT]
+2024-07-17 13:56:17,582 INFO  [org.apache.activemq.artemis.core.server] AMQ221020: Started EPOLL Acceptor at 0.0.0.0:61613 for protocols [STOMP]
+2024-07-17 13:56:17,803 INFO  [org.apache.activemq.artemis.core.server] AMQ221007: Server is now active
+2024-07-17 13:56:17,804 INFO  [org.apache.activemq.artemis.core.server] AMQ221001: Apache ActiveMQ Artemis Message Broker version 2.35.0 [0.0.0.0, nodeID=3734ec0b-4442-11ef-bb6d-0242ac140002] 
+2024-07-17 13:56:17,847 INFO  [org.apache.activemq.artemis] AMQ241003: Starting embedded web server
+2024-07-17 13:56:20,732 INFO  [org.apache.activemq.hawtio.branding.PluginContextListener] Initialized activemq-branding plugin
+2024-07-17 13:56:22,449 INFO  [org.apache.activemq.hawtio.plugin.PluginContextListener] Initialized artemis-plugin plugin
+2024-07-17 13:56:33,255 INFO  [io.hawt.HawtioContextListener] Initialising hawtio services
+2024-07-17 13:56:33,296 INFO  [io.hawt.system.ConfigManager] Configuration will be discovered via system properties
+2024-07-17 13:56:33,314 INFO  [io.hawt.jmx.JmxTreeWatcher] Welcome to Hawtio 2.17.7
+2024-07-17 13:56:33,359 INFO  [io.hawt.web.auth.AuthenticationConfiguration] Starting hawtio authentication filter, JAAS realm: "activemq" authorized role(s): "amq" role principal classes: "org.apache.activemq.artemis.spi.core.security.jaas.RolePrincipal"
+2024-07-17 13:56:33,439 INFO  [io.hawt.web.auth.LoginRedirectFilter] Hawtio loginRedirectFilter is using 1800 sec. HttpSession timeout
+2024-07-17 13:56:33,538 INFO  [org.apache.activemq.artemis] AMQ241001: HTTP Server started at http://0.0.0.0:8161
+2024-07-17 13:56:33,540 INFO  [org.apache.activemq.artemis] AMQ241002: Artemis Jolokia REST API available at http://0.0.0.0:8161/console/jolokia
+2024-07-17 13:56:33,540 INFO  [org.apache.activemq.artemis] AMQ241004: Artemis Console available at http://0.0.0.0:8161/console
+2024-07-17 13:56:33,904 INFO  [io.hawt.web.servlets.JolokiaConfiguredAgentServlet] Jolokia overridden property: [key=policyLocation, value=file:/var/lib/artemis-instance/./etc/jolokia-access.xml]
+2024-07-17 13:56:34,695 WARN  [org.eclipse.jetty.server.HttpChannel] /console/jolokia/
+java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
+	at java.base/jdk.internal.util.Preconditions.outOfBounds(Unknown Source) ~[?:?]
+	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Unknown Source) ~[?:?]
+	at java.base/jdk.internal.util.Preconditions.checkIndex(Unknown Source) ~[?:?]
+	at java.base/java.util.Objects.checkIndex(Unknown Source) ~[?:?]
+	at java.base/java.util.ArrayList.get(Unknown Source) ~[?:?]
+	at io.hawt.system.AuthenticationManager.authenticate(AuthenticationManager.java:42) ~[?:?]
+	at io.hawt.web.auth.AuthenticationFilter.doFilter(AuthenticationFilter.java:79) ~[?:?]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:202) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1635) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at io.hawt.web.filters.HttpHeaderFilter.doFilter(HttpHeaderFilter.java:46) ~[?:?]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:202) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1635) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at io.hawt.web.filters.HttpHeaderFilter.doFilter(HttpHeaderFilter.java:46) ~[?:?]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:202) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1635) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at io.hawt.web.filters.HttpHeaderFilter.doFilter(HttpHeaderFilter.java:46) ~[?:?]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:202) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1635) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at io.hawt.web.filters.HttpHeaderFilter.doFilter(HttpHeaderFilter.java:46) ~[?:?]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:202) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1635) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at io.hawt.web.filters.HttpHeaderFilter.doFilter(HttpHeaderFilter.java:46) ~[?:?]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:202) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1635) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at io.hawt.web.filters.HttpHeaderFilter.doFilter(HttpHeaderFilter.java:46) ~[?:?]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:202) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1635) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at io.hawt.web.filters.HttpHeaderFilter.doFilter(HttpHeaderFilter.java:46) ~[?:?]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:202) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1635) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at io.hawt.web.filters.HttpHeaderFilter.doFilter(HttpHeaderFilter.java:46) ~[?:?]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:202) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1635) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at io.hawt.web.filters.HttpHeaderFilter.doFilter(HttpHeaderFilter.java:46) ~[?:?]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:202) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1635) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at io.hawt.web.auth.SessionExpiryFilter.process(SessionExpiryFilter.java:107) ~[?:?]
+	at io.hawt.web.auth.SessionExpiryFilter.doFilter(SessionExpiryFilter.java:60) ~[?:?]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:210) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1635) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at org.apache.activemq.artemis.component.JolokiaFilter.doFilter(JolokiaFilter.java:50) ~[artemis-web-2.35.0.jar:2.35.0]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:202) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1635) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:527) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:131) ~[jetty-server-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:598) ~[jetty-security-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:122) ~[jetty-server-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:223) ~[jetty-server-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1580) ~[jetty-server-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:221) ~[jetty-server-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1384) ~[jetty-server-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:176) ~[jetty-server-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:484) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1553) ~[jetty-server-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:174) ~[jetty-server-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1306) ~[jetty-server-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:129) ~[jetty-server-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.server.handler.HandlerList.handle(HandlerList.java:51) ~[jetty-server-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:122) ~[jetty-server-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.server.Server.handle(Server.java:563) ~[jetty-server-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.server.HttpChannel$RequestDispatchable.dispatch(HttpChannel.java:1598) ~[jetty-server-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.server.HttpChannel.dispatch(HttpChannel.java:753) ~[jetty-server-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:501) ~[jetty-server-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:287) ~[jetty-server-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:314) ~[jetty-io-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:100) ~[jetty-io-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.io.SelectableChannelEndPoint$1.run(SelectableChannelEndPoint.java:53) ~[jetty-io-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:969) ~[jetty-util-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.doRunJob(QueuedThreadPool.java:1194) ~[jetty-util-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:1149) ~[jetty-util-10.0.20.jar:10.0.20]
+	at java.base/java.lang.Thread.run(Unknown Source) [?:?]
+2024-07-17 13:56:34,695 WARN  [org.eclipse.jetty.server.HttpChannel] /console/jolokia/
+java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
+	at java.base/jdk.internal.util.Preconditions.outOfBounds(Unknown Source) ~[?:?]
+	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Unknown Source) ~[?:?]
+	at java.base/jdk.internal.util.Preconditions.checkIndex(Unknown Source) ~[?:?]
+	at java.base/java.util.Objects.checkIndex(Unknown Source) ~[?:?]
+	at java.base/java.util.ArrayList.get(Unknown Source) ~[?:?]
+	at io.hawt.system.AuthenticationManager.authenticate(AuthenticationManager.java:42) ~[?:?]
+	at io.hawt.web.auth.AuthenticationFilter.doFilter(AuthenticationFilter.java:79) ~[?:?]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:202) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1635) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at io.hawt.web.filters.HttpHeaderFilter.doFilter(HttpHeaderFilter.java:46) ~[?:?]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:202) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1635) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at io.hawt.web.filters.HttpHeaderFilter.doFilter(HttpHeaderFilter.java:46) ~[?:?]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:202) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1635) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at io.hawt.web.filters.HttpHeaderFilter.doFilter(HttpHeaderFilter.java:46) ~[?:?]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:202) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1635) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at io.hawt.web.filters.HttpHeaderFilter.doFilter(HttpHeaderFilter.java:46) ~[?:?]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:202) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1635) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at io.hawt.web.filters.HttpHeaderFilter.doFilter(HttpHeaderFilter.java:46) ~[?:?]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:202) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1635) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at io.hawt.web.filters.HttpHeaderFilter.doFilter(HttpHeaderFilter.java:46) ~[?:?]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:202) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1635) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at io.hawt.web.filters.HttpHeaderFilter.doFilter(HttpHeaderFilter.java:46) ~[?:?]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:202) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1635) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at io.hawt.web.filters.HttpHeaderFilter.doFilter(HttpHeaderFilter.java:46) ~[?:?]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:202) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1635) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at io.hawt.web.filters.HttpHeaderFilter.doFilter(HttpHeaderFilter.java:46) ~[?:?]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:202) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1635) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at io.hawt.web.auth.SessionExpiryFilter.process(SessionExpiryFilter.java:107) ~[?:?]
+	at io.hawt.web.auth.SessionExpiryFilter.doFilter(SessionExpiryFilter.java:60) ~[?:?]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:210) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1635) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at org.apache.activemq.artemis.component.JolokiaFilter.doFilter(JolokiaFilter.java:50) ~[artemis-web-2.35.0.jar:2.35.0]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:202) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1635) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:527) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:131) ~[jetty-server-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:598) ~[jetty-security-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:122) ~[jetty-server-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:223) ~[jetty-server-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1580) ~[jetty-server-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:221) ~[jetty-server-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1384) ~[jetty-server-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:176) ~[jetty-server-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:484) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1553) ~[jetty-server-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:174) ~[jetty-server-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1306) ~[jetty-server-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:129) ~[jetty-server-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.server.handler.HandlerList.handle(HandlerList.java:51) ~[jetty-server-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:122) ~[jetty-server-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.server.Server.handle(Server.java:563) ~[jetty-server-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.server.HttpChannel$RequestDispatchable.dispatch(HttpChannel.java:1598) ~[jetty-server-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.server.HttpChannel.dispatch(HttpChannel.java:753) ~[jetty-server-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:501) ~[jetty-server-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:287) ~[jetty-server-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:314) ~[jetty-io-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:100) ~[jetty-io-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.io.SelectableChannelEndPoint$1.run(SelectableChannelEndPoint.java:53) ~[jetty-io-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:969) ~[jetty-util-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.doRunJob(QueuedThreadPool.java:1194) ~[jetty-util-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:1149) ~[jetty-util-10.0.20.jar:10.0.20]
+	at java.base/java.lang.Thread.run(Unknown Source) [?:?]
+2024-07-17 13:56:35,007 INFO  [io.hawt.web.auth.LoginServlet] Hawtio login is using 1800 sec. HttpSession timeout
+2024-07-17 13:56:37,250 INFO  [io.hawt.web.auth.keycloak.KeycloakServlet] Keycloak integration is disabled
+2024-07-17 13:56:43,331 INFO  [io.hawt.web.proxy.ProxyServlet] Proxy servlet is disabled
+2024-07-17 14:06:19,308 INFO  [io.hawt.web.auth.LoginServlet] Logging in user: admin
+2024-07-17 14:09:42,822 INFO  [org.apache.activemq.artemis] AMQ241005: Stopping embedded web server
+2024-07-17 14:09:42,848 INFO  [io.hawt.HawtioContextListener] Destroying hawtio services
+2024-07-17 14:09:43,422 INFO  [org.apache.activemq.hawtio.plugin.PluginContextListener] Destroyed artemis-plugin plugin
+2024-07-17 14:09:43,772 INFO  [org.apache.activemq.hawtio.branding.PluginContextListener] Destroyed activemq-branding plugin
+2024-07-17 14:09:44,156 INFO  [org.apache.activemq.artemis] AMQ241006: Stopped embedded web server
+2024-07-17 14:09:44,158 INFO  [org.apache.activemq.artemis.core.server] AMQ221002: Apache ActiveMQ Artemis Message Broker version 2.35.0 [3734ec0b-4442-11ef-bb6d-0242ac140002] stopped, uptime 13 minutes
+2024-07-17 14:09:54,882 INFO  [org.apache.activemq.artemis.integration.bootstrap] AMQ101000: Starting ActiveMQ Artemis Server version 2.35.0
+2024-07-17 14:09:55,035 INFO  [org.apache.activemq.artemis.core.server] AMQ221000: Primary message broker is starting with configuration Broker Configuration (clustered=false,journalDirectory=data/journal,bindingsDirectory=data/bindings,largeMessagesDirectory=data/large-messages,pagingDirectory=data/paging)
+2024-07-17 14:09:55,158 INFO  [org.apache.activemq.artemis.core.server] AMQ221012: Using AIO Journal
+2024-07-17 14:09:55,452 INFO  [org.apache.activemq.artemis.core.server] AMQ221057: Global Max Size is being adjusted to 1/2 of the JVM max size (-Xmx). being defined as 1073741824
+2024-07-17 14:09:55,561 INFO  [org.apache.activemq.artemis.core.server] AMQ221043: Protocol module found: [artemis-server]. Adding protocol support for: CORE
+2024-07-17 14:09:55,564 INFO  [org.apache.activemq.artemis.core.server] AMQ221043: Protocol module found: [artemis-amqp-protocol]. Adding protocol support for: AMQP
+2024-07-17 14:09:55,565 INFO  [org.apache.activemq.artemis.core.server] AMQ221043: Protocol module found: [artemis-hornetq-protocol]. Adding protocol support for: HORNETQ
+2024-07-17 14:09:55,566 INFO  [org.apache.activemq.artemis.core.server] AMQ221043: Protocol module found: [artemis-mqtt-protocol]. Adding protocol support for: MQTT
+2024-07-17 14:09:55,567 INFO  [org.apache.activemq.artemis.core.server] AMQ221043: Protocol module found: [artemis-openwire-protocol]. Adding protocol support for: OPENWIRE
+2024-07-17 14:09:55,568 INFO  [org.apache.activemq.artemis.core.server] AMQ221043: Protocol module found: [artemis-stomp-protocol]. Adding protocol support for: STOMP
+2024-07-17 14:09:55,690 INFO  [org.apache.activemq.artemis.core.server] AMQ221034: Waiting indefinitely to obtain primary lock
+2024-07-17 14:09:55,691 INFO  [org.apache.activemq.artemis.core.server] AMQ221035: Primary Server Obtained primary lock
+2024-07-17 14:09:56,714 INFO  [org.apache.activemq.artemis.core.server] AMQ221080: Deploying address DLQ supporting [ANYCAST]
+2024-07-17 14:09:56,716 INFO  [org.apache.activemq.artemis.core.server] AMQ221003: Deploying ANYCAST queue DLQ on address DLQ
+2024-07-17 14:09:56,722 INFO  [org.apache.activemq.artemis.core.server] AMQ221080: Deploying address ExpiryQueue supporting [ANYCAST]
+2024-07-17 14:09:56,723 INFO  [org.apache.activemq.artemis.core.server] AMQ221003: Deploying ANYCAST queue ExpiryQueue on address ExpiryQueue
+2024-07-17 14:09:57,944 INFO  [org.apache.activemq.artemis.core.server] AMQ221020: Started EPOLL Acceptor at 0.0.0.0:61616 for protocols [CORE,MQTT,AMQP,STOMP,HORNETQ,OPENWIRE]
+2024-07-17 14:09:58,015 INFO  [org.apache.activemq.artemis.core.server] AMQ221020: Started EPOLL Acceptor at 0.0.0.0:5445 for protocols [HORNETQ,STOMP]
+2024-07-17 14:09:58,035 INFO  [org.apache.activemq.artemis.core.server] AMQ221020: Started EPOLL Acceptor at 0.0.0.0:5672 for protocols [AMQP]
+2024-07-17 14:09:58,164 INFO  [org.apache.activemq.artemis.core.server] AMQ221020: Started EPOLL Acceptor at 0.0.0.0:1883 for protocols [MQTT]
+2024-07-17 14:09:58,181 INFO  [org.apache.activemq.artemis.core.server] AMQ221020: Started EPOLL Acceptor at 0.0.0.0:61613 for protocols [STOMP]
+2024-07-17 14:09:58,189 INFO  [org.apache.activemq.artemis.core.server] AMQ221007: Server is now active
+2024-07-17 14:09:58,190 INFO  [org.apache.activemq.artemis.core.server] AMQ221001: Apache ActiveMQ Artemis Message Broker version 2.35.0 [0.0.0.0, nodeID=3734ec0b-4442-11ef-bb6d-0242ac140002] 
+2024-07-17 14:09:58,234 INFO  [org.apache.activemq.artemis] AMQ241003: Starting embedded web server
+2024-07-17 14:10:00,337 INFO  [org.apache.activemq.hawtio.branding.PluginContextListener] Initialized activemq-branding plugin
+2024-07-17 14:10:01,765 INFO  [org.apache.activemq.hawtio.plugin.PluginContextListener] Initialized artemis-plugin plugin
+2024-07-17 14:10:10,401 INFO  [io.hawt.HawtioContextListener] Initialising hawtio services
+2024-07-17 14:10:10,439 INFO  [io.hawt.system.ConfigManager] Configuration will be discovered via system properties
+2024-07-17 14:10:10,454 INFO  [io.hawt.jmx.JmxTreeWatcher] Welcome to Hawtio 2.17.7
+2024-07-17 14:10:10,487 INFO  [io.hawt.web.auth.AuthenticationConfiguration] Starting hawtio authentication filter, JAAS realm: "activemq" authorized role(s): "amq" role principal classes: "org.apache.activemq.artemis.spi.core.security.jaas.RolePrincipal"
+2024-07-17 14:10:10,542 INFO  [io.hawt.web.auth.LoginRedirectFilter] Hawtio loginRedirectFilter is using 1800 sec. HttpSession timeout
+2024-07-17 14:10:10,631 INFO  [org.apache.activemq.artemis] AMQ241001: HTTP Server started at http://0.0.0.0:8161
+2024-07-17 14:10:10,632 INFO  [org.apache.activemq.artemis] AMQ241002: Artemis Jolokia REST API available at http://0.0.0.0:8161/console/jolokia
+2024-07-17 14:10:10,632 INFO  [org.apache.activemq.artemis] AMQ241004: Artemis Console available at http://0.0.0.0:8161/console
+2024-07-17 14:10:10,939 INFO  [io.hawt.web.servlets.JolokiaConfiguredAgentServlet] Jolokia overridden property: [key=policyLocation, value=file:/var/lib/artemis-instance/./etc/jolokia-access.xml]
+2024-07-17 14:10:11,614 WARN  [org.eclipse.jetty.server.HttpChannel] /console/jolokia/
+java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
+	at java.base/jdk.internal.util.Preconditions.outOfBounds(Unknown Source) ~[?:?]
+	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Unknown Source) ~[?:?]
+	at java.base/jdk.internal.util.Preconditions.checkIndex(Unknown Source) ~[?:?]
+	at java.base/java.util.Objects.checkIndex(Unknown Source) ~[?:?]
+	at java.base/java.util.ArrayList.get(Unknown Source) ~[?:?]
+	at io.hawt.system.AuthenticationManager.authenticate(AuthenticationManager.java:42) ~[?:?]
+	at io.hawt.web.auth.AuthenticationFilter.doFilter(AuthenticationFilter.java:79) ~[?:?]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:202) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1635) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at io.hawt.web.filters.HttpHeaderFilter.doFilter(HttpHeaderFilter.java:46) ~[?:?]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:202) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1635) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at io.hawt.web.filters.HttpHeaderFilter.doFilter(HttpHeaderFilter.java:46) ~[?:?]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:202) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1635) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at io.hawt.web.filters.HttpHeaderFilter.doFilter(HttpHeaderFilter.java:46) ~[?:?]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:202) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1635) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at io.hawt.web.filters.HttpHeaderFilter.doFilter(HttpHeaderFilter.java:46) ~[?:?]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:202) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1635) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at io.hawt.web.filters.HttpHeaderFilter.doFilter(HttpHeaderFilter.java:46) ~[?:?]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:202) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1635) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at io.hawt.web.filters.HttpHeaderFilter.doFilter(HttpHeaderFilter.java:46) ~[?:?]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:202) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1635) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at io.hawt.web.filters.HttpHeaderFilter.doFilter(HttpHeaderFilter.java:46) ~[?:?]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:202) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1635) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at io.hawt.web.filters.HttpHeaderFilter.doFilter(HttpHeaderFilter.java:46) ~[?:?]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:202) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1635) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at io.hawt.web.filters.HttpHeaderFilter.doFilter(HttpHeaderFilter.java:46) ~[?:?]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:202) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1635) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at io.hawt.web.auth.SessionExpiryFilter.process(SessionExpiryFilter.java:107) ~[?:?]
+	at io.hawt.web.auth.SessionExpiryFilter.doFilter(SessionExpiryFilter.java:60) ~[?:?]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:210) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1635) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at org.apache.activemq.artemis.component.JolokiaFilter.doFilter(JolokiaFilter.java:50) ~[artemis-web-2.35.0.jar:2.35.0]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:202) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1635) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:527) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:131) ~[jetty-server-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:598) ~[jetty-security-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:122) ~[jetty-server-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:223) ~[jetty-server-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1580) ~[jetty-server-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:221) ~[jetty-server-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1384) ~[jetty-server-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:176) ~[jetty-server-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:484) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1553) ~[jetty-server-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:174) ~[jetty-server-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1306) ~[jetty-server-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:129) ~[jetty-server-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.server.handler.HandlerList.handle(HandlerList.java:51) ~[jetty-server-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:122) ~[jetty-server-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.server.Server.handle(Server.java:563) ~[jetty-server-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.server.HttpChannel$RequestDispatchable.dispatch(HttpChannel.java:1598) ~[jetty-server-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.server.HttpChannel.dispatch(HttpChannel.java:753) ~[jetty-server-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:501) ~[jetty-server-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:287) ~[jetty-server-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:314) ~[jetty-io-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:100) ~[jetty-io-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.io.SelectableChannelEndPoint$1.run(SelectableChannelEndPoint.java:53) ~[jetty-io-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.runTask(AdaptiveExecutionStrategy.java:421) ~[jetty-util-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.consumeTask(AdaptiveExecutionStrategy.java:390) ~[jetty-util-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.tryProduce(AdaptiveExecutionStrategy.java:277) ~[jetty-util-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.produce(AdaptiveExecutionStrategy.java:193) ~[jetty-util-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:969) ~[jetty-util-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.doRunJob(QueuedThreadPool.java:1194) ~[jetty-util-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:1149) ~[jetty-util-10.0.20.jar:10.0.20]
+	at java.base/java.lang.Thread.run(Unknown Source) [?:?]
+2024-07-17 14:10:11,614 WARN  [org.eclipse.jetty.server.HttpChannel] /console/jolokia/
+java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
+	at java.base/jdk.internal.util.Preconditions.outOfBounds(Unknown Source) ~[?:?]
+	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Unknown Source) ~[?:?]
+	at java.base/jdk.internal.util.Preconditions.checkIndex(Unknown Source) ~[?:?]
+	at java.base/java.util.Objects.checkIndex(Unknown Source) ~[?:?]
+	at java.base/java.util.ArrayList.get(Unknown Source) ~[?:?]
+	at io.hawt.system.AuthenticationManager.authenticate(AuthenticationManager.java:42) ~[?:?]
+	at io.hawt.web.auth.AuthenticationFilter.doFilter(AuthenticationFilter.java:79) ~[?:?]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:202) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1635) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at io.hawt.web.filters.HttpHeaderFilter.doFilter(HttpHeaderFilter.java:46) ~[?:?]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:202) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1635) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at io.hawt.web.filters.HttpHeaderFilter.doFilter(HttpHeaderFilter.java:46) ~[?:?]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:202) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1635) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at io.hawt.web.filters.HttpHeaderFilter.doFilter(HttpHeaderFilter.java:46) ~[?:?]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:202) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1635) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at io.hawt.web.filters.HttpHeaderFilter.doFilter(HttpHeaderFilter.java:46) ~[?:?]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:202) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1635) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at io.hawt.web.filters.HttpHeaderFilter.doFilter(HttpHeaderFilter.java:46) ~[?:?]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:202) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1635) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at io.hawt.web.filters.HttpHeaderFilter.doFilter(HttpHeaderFilter.java:46) ~[?:?]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:202) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1635) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at io.hawt.web.filters.HttpHeaderFilter.doFilter(HttpHeaderFilter.java:46) ~[?:?]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:202) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1635) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at io.hawt.web.filters.HttpHeaderFilter.doFilter(HttpHeaderFilter.java:46) ~[?:?]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:202) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1635) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at io.hawt.web.filters.HttpHeaderFilter.doFilter(HttpHeaderFilter.java:46) ~[?:?]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:202) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1635) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at io.hawt.web.auth.SessionExpiryFilter.process(SessionExpiryFilter.java:107) ~[?:?]
+	at io.hawt.web.auth.SessionExpiryFilter.doFilter(SessionExpiryFilter.java:60) ~[?:?]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:210) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1635) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at org.apache.activemq.artemis.component.JolokiaFilter.doFilter(JolokiaFilter.java:50) ~[artemis-web-2.35.0.jar:2.35.0]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:202) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1635) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:527) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:131) ~[jetty-server-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:598) ~[jetty-security-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:122) ~[jetty-server-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:223) ~[jetty-server-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1580) ~[jetty-server-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:221) ~[jetty-server-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1384) ~[jetty-server-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:176) ~[jetty-server-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:484) ~[jetty-servlet-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1553) ~[jetty-server-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:174) ~[jetty-server-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1306) ~[jetty-server-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:129) ~[jetty-server-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.server.handler.HandlerList.handle(HandlerList.java:51) ~[jetty-server-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:122) ~[jetty-server-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.server.Server.handle(Server.java:563) ~[jetty-server-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.server.HttpChannel$RequestDispatchable.dispatch(HttpChannel.java:1598) ~[jetty-server-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.server.HttpChannel.dispatch(HttpChannel.java:753) ~[jetty-server-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:501) ~[jetty-server-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:287) ~[jetty-server-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:314) ~[jetty-io-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:100) ~[jetty-io-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.io.SelectableChannelEndPoint$1.run(SelectableChannelEndPoint.java:53) ~[jetty-io-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:969) ~[jetty-util-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.doRunJob(QueuedThreadPool.java:1194) ~[jetty-util-10.0.20.jar:10.0.20]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:1149) ~[jetty-util-10.0.20.jar:10.0.20]
+	at java.base/java.lang.Thread.run(Unknown Source) [?:?]
+2024-07-17 14:10:11,729 INFO  [io.hawt.web.auth.LoginServlet] Hawtio login is using 1800 sec. HttpSession timeout
+2024-07-17 14:10:13,247 INFO  [io.hawt.web.auth.keycloak.KeycloakServlet] Keycloak integration is disabled
+2024-07-17 14:10:19,337 INFO  [io.hawt.web.proxy.ProxyServlet] Proxy servlet is disabled
+2024-07-17 14:30:44,853 INFO  [org.apache.activemq.artemis] AMQ241005: Stopping embedded web server
+2024-07-17 14:30:44,913 INFO  [io.hawt.HawtioContextListener] Destroying hawtio services
+2024-07-17 14:30:45,613 INFO  [org.apache.activemq.hawtio.plugin.PluginContextListener] Destroyed artemis-plugin plugin
+2024-07-17 14:30:45,980 INFO  [org.apache.activemq.hawtio.branding.PluginContextListener] Destroyed activemq-branding plugin
+2024-07-17 14:30:46,424 INFO  [org.apache.activemq.artemis] AMQ241006: Stopped embedded web server
+2024-07-17 14:30:46,437 INFO  [org.apache.activemq.artemis.core.server] AMQ221002: Apache ActiveMQ Artemis Message Broker version 2.35.0 [3734ec0b-4442-11ef-bb6d-0242ac140002] stopped, uptime 20 minutes
+2024-07-17 14:33:26,691 INFO  [org.apache.activemq.artemis.integration.bootstrap] AMQ101000: Starting ActiveMQ Artemis Server version 2.35.0
+2024-07-17 14:33:26,809 INFO  [org.apache.activemq.artemis.core.server] AMQ221000: Primary message broker is starting with configuration Broker Configuration (clustered=false,journalDirectory=data/journal,bindingsDirectory=data/bindings,largeMessagesDirectory=data/large-messages,pagingDirectory=data/paging)
+2024-07-17 14:33:26,920 INFO  [org.apache.activemq.artemis.core.server] AMQ221012: Using AIO Journal
+2024-07-17 14:33:27,160 INFO  [org.apache.activemq.artemis.core.server] AMQ221057: Global Max Size is being adjusted to 1/2 of the JVM max size (-Xmx). being defined as 1073741824
+2024-07-17 14:33:27,257 INFO  [org.apache.activemq.artemis.core.server] AMQ221043: Protocol module found: [artemis-server]. Adding protocol support for: CORE
+2024-07-17 14:33:27,259 INFO  [org.apache.activemq.artemis.core.server] AMQ221043: Protocol module found: [artemis-amqp-protocol]. Adding protocol support for: AMQP
+2024-07-17 14:33:27,260 INFO  [org.apache.activemq.artemis.core.server] AMQ221043: Protocol module found: [artemis-hornetq-protocol]. Adding protocol support for: HORNETQ
+2024-07-17 14:33:27,261 INFO  [org.apache.activemq.artemis.core.server] AMQ221043: Protocol module found: [artemis-mqtt-protocol]. Adding protocol support for: MQTT
+2024-07-17 14:33:27,262 INFO  [org.apache.activemq.artemis.core.server] AMQ221043: Protocol module found: [artemis-openwire-protocol]. Adding protocol support for: OPENWIRE
+2024-07-17 14:33:27,263 INFO  [org.apache.activemq.artemis.core.server] AMQ221043: Protocol module found: [artemis-stomp-protocol]. Adding protocol support for: STOMP
+2024-07-17 14:33:27,375 INFO  [org.apache.activemq.artemis.core.server] AMQ221034: Waiting indefinitely to obtain primary lock
+2024-07-17 14:33:27,377 INFO  [org.apache.activemq.artemis.core.server] AMQ221035: Primary Server Obtained primary lock
+2024-07-17 14:33:28,354 INFO  [org.apache.activemq.artemis.core.server] AMQ221080: Deploying address DLQ supporting [ANYCAST]
+2024-07-17 14:33:28,356 INFO  [org.apache.activemq.artemis.core.server] AMQ221003: Deploying ANYCAST queue DLQ on address DLQ
+2024-07-17 14:33:28,363 INFO  [org.apache.activemq.artemis.core.server] AMQ221080: Deploying address ExpiryQueue supporting [ANYCAST]
+2024-07-17 14:33:28,364 INFO  [org.apache.activemq.artemis.core.server] AMQ221003: Deploying ANYCAST queue ExpiryQueue on address ExpiryQueue
+2024-07-17 14:33:29,459 INFO  [org.apache.activemq.artemis.core.server] AMQ221020: Started EPOLL Acceptor at 0.0.0.0:61616 for protocols [CORE,MQTT,AMQP,STOMP,HORNETQ,OPENWIRE]
+2024-07-17 14:33:29,560 INFO  [org.apache.activemq.artemis.core.server] AMQ221020: Started EPOLL Acceptor at 0.0.0.0:5445 for protocols [HORNETQ,STOMP]
+2024-07-17 14:33:29,582 INFO  [org.apache.activemq.artemis.core.server] AMQ221020: Started EPOLL Acceptor at 0.0.0.0:5672 for protocols [AMQP]
+2024-07-17 14:33:29,740 INFO  [org.apache.activemq.artemis.core.server] AMQ221020: Started EPOLL Acceptor at 0.0.0.0:1883 for protocols [MQTT]
+2024-07-17 14:33:29,871 INFO  [org.apache.activemq.artemis.core.server] AMQ221020: Started EPOLL Acceptor at 0.0.0.0:61613 for protocols [STOMP]
+2024-07-17 14:33:29,877 INFO  [org.apache.activemq.artemis.core.server] AMQ221007: Server is now active
+2024-07-17 14:33:29,878 INFO  [org.apache.activemq.artemis.core.server] AMQ221001: Apache ActiveMQ Artemis Message Broker version 2.35.0 [0.0.0.0, nodeID=3734ec0b-4442-11ef-bb6d-0242ac140002] 
+2024-07-17 14:33:29,908 INFO  [org.apache.activemq.artemis] AMQ241003: Starting embedded web server
+2024-07-17 14:33:31,967 INFO  [org.apache.activemq.hawtio.branding.PluginContextListener] Initialized activemq-branding plugin
+2024-07-17 14:33:33,302 INFO  [org.apache.activemq.hawtio.plugin.PluginContextListener] Initialized artemis-plugin plugin
+2024-07-17 14:33:42,365 INFO  [io.hawt.HawtioContextListener] Initialising hawtio services
+2024-07-17 14:33:42,435 INFO  [io.hawt.system.ConfigManager] Configuration will be discovered via system properties
+2024-07-17 14:33:42,456 INFO  [io.hawt.jmx.JmxTreeWatcher] Welcome to Hawtio 2.17.7
+2024-07-17 14:33:42,521 INFO  [io.hawt.web.auth.AuthenticationConfiguration] Starting hawtio authentication filter, JAAS realm: "activemq" authorized role(s): "amq" role principal classes: "org.apache.activemq.artemis.spi.core.security.jaas.RolePrincipal"
+2024-07-17 14:33:42,595 INFO  [io.hawt.web.auth.LoginRedirectFilter] Hawtio loginRedirectFilter is using 1800 sec. HttpSession timeout
+2024-07-17 14:33:42,738 INFO  [org.apache.activemq.artemis] AMQ241001: HTTP Server started at http://0.0.0.0:8161
+2024-07-17 14:33:42,739 INFO  [org.apache.activemq.artemis] AMQ241002: Artemis Jolokia REST API available at http://0.0.0.0:8161/console/jolokia
+2024-07-17 14:33:42,739 INFO  [org.apache.activemq.artemis] AMQ241004: Artemis Console available at http://0.0.0.0:8161/console
+2024-07-17 14:47:24,205 INFO  [org.apache.activemq.artemis] AMQ241005: Stopping embedded web server
+2024-07-17 14:47:24,408 INFO  [io.hawt.HawtioContextListener] Destroying hawtio services
+2024-07-17 14:47:25,092 INFO  [org.apache.activemq.hawtio.plugin.PluginContextListener] Destroyed artemis-plugin plugin
+2024-07-17 14:47:25,758 INFO  [org.apache.activemq.hawtio.branding.PluginContextListener] Destroyed activemq-branding plugin
+2024-07-17 14:47:26,318 INFO  [org.apache.activemq.artemis] AMQ241006: Stopped embedded web server
+2024-07-17 14:47:26,361 INFO  [org.apache.activemq.artemis.core.server] AMQ221002: Apache ActiveMQ Artemis Message Broker version 2.35.0 [3734ec0b-4442-11ef-bb6d-0242ac140002] stopped, uptime 13 minutes
+2024-07-17 14:48:33,503 INFO  [org.apache.activemq.artemis.integration.bootstrap] AMQ101000: Starting ActiveMQ Artemis Server version 2.35.0
+2024-07-17 14:48:33,624 INFO  [org.apache.activemq.artemis.core.server] AMQ221000: Primary message broker is starting with configuration Broker Configuration (clustered=false,journalDirectory=data/journal,bindingsDirectory=data/bindings,largeMessagesDirectory=data/large-messages,pagingDirectory=data/paging)
+2024-07-17 14:48:33,747 INFO  [org.apache.activemq.artemis.core.server] AMQ221012: Using AIO Journal
+2024-07-17 14:48:34,027 INFO  [org.apache.activemq.artemis.core.server] AMQ221057: Global Max Size is being adjusted to 1/2 of the JVM max size (-Xmx). being defined as 1073741824
+2024-07-17 14:48:34,142 INFO  [org.apache.activemq.artemis.core.server] AMQ221043: Protocol module found: [artemis-server]. Adding protocol support for: CORE
+2024-07-17 14:48:34,146 INFO  [org.apache.activemq.artemis.core.server] AMQ221043: Protocol module found: [artemis-amqp-protocol]. Adding protocol support for: AMQP
+2024-07-17 14:48:34,148 INFO  [org.apache.activemq.artemis.core.server] AMQ221043: Protocol module found: [artemis-hornetq-protocol]. Adding protocol support for: HORNETQ
+2024-07-17 14:48:34,149 INFO  [org.apache.activemq.artemis.core.server] AMQ221043: Protocol module found: [artemis-mqtt-protocol]. Adding protocol support for: MQTT
+2024-07-17 14:48:34,150 INFO  [org.apache.activemq.artemis.core.server] AMQ221043: Protocol module found: [artemis-openwire-protocol]. Adding protocol support for: OPENWIRE
+2024-07-17 14:48:34,152 INFO  [org.apache.activemq.artemis.core.server] AMQ221043: Protocol module found: [artemis-stomp-protocol]. Adding protocol support for: STOMP
+2024-07-17 14:48:34,264 INFO  [org.apache.activemq.artemis.core.server] AMQ221034: Waiting indefinitely to obtain primary lock
+2024-07-17 14:48:34,266 INFO  [org.apache.activemq.artemis.core.server] AMQ221035: Primary Server Obtained primary lock
+2024-07-17 14:48:35,324 INFO  [org.apache.activemq.artemis.core.server] AMQ221080: Deploying address DLQ supporting [ANYCAST]
+2024-07-17 14:48:35,326 INFO  [org.apache.activemq.artemis.core.server] AMQ221003: Deploying ANYCAST queue DLQ on address DLQ
+2024-07-17 14:48:35,333 INFO  [org.apache.activemq.artemis.core.server] AMQ221080: Deploying address ExpiryQueue supporting [ANYCAST]
+2024-07-17 14:48:35,333 INFO  [org.apache.activemq.artemis.core.server] AMQ221003: Deploying ANYCAST queue ExpiryQueue on address ExpiryQueue
+2024-07-17 14:48:36,537 INFO  [org.apache.activemq.artemis.core.server] AMQ221020: Started EPOLL Acceptor at 0.0.0.0:61616 for protocols [CORE,MQTT,AMQP,STOMP,HORNETQ,OPENWIRE]
+2024-07-17 14:48:36,662 INFO  [org.apache.activemq.artemis.core.server] AMQ221020: Started EPOLL Acceptor at 0.0.0.0:5445 for protocols [HORNETQ,STOMP]
+2024-07-17 14:48:36,692 INFO  [org.apache.activemq.artemis.core.server] AMQ221020: Started EPOLL Acceptor at 0.0.0.0:5672 for protocols [AMQP]
+2024-07-17 14:48:36,823 INFO  [org.apache.activemq.artemis.core.server] AMQ221020: Started EPOLL Acceptor at 0.0.0.0:1883 for protocols [MQTT]
+2024-07-17 14:48:36,866 INFO  [org.apache.activemq.artemis.core.server] AMQ221020: Started EPOLL Acceptor at 0.0.0.0:61613 for protocols [STOMP]
+2024-07-17 14:48:36,873 INFO  [org.apache.activemq.artemis.core.server] AMQ221007: Server is now active
+2024-07-17 14:48:36,873 INFO  [org.apache.activemq.artemis.core.server] AMQ221001: Apache ActiveMQ Artemis Message Broker version 2.35.0 [0.0.0.0, nodeID=3734ec0b-4442-11ef-bb6d-0242ac140002] 
+2024-07-17 14:48:36,908 INFO  [org.apache.activemq.artemis] AMQ241003: Starting embedded web server
+2024-07-17 14:48:39,464 INFO  [org.apache.activemq.hawtio.branding.PluginContextListener] Initialized activemq-branding plugin
+2024-07-17 14:48:40,827 INFO  [org.apache.activemq.hawtio.plugin.PluginContextListener] Initialized artemis-plugin plugin
+2024-07-17 14:48:50,200 INFO  [io.hawt.HawtioContextListener] Initialising hawtio services
+2024-07-17 14:48:50,254 INFO  [io.hawt.system.ConfigManager] Configuration will be discovered via system properties
+2024-07-17 14:48:50,269 INFO  [io.hawt.jmx.JmxTreeWatcher] Welcome to Hawtio 2.17.7
+2024-07-17 14:48:50,317 INFO  [io.hawt.web.auth.AuthenticationConfiguration] Starting hawtio authentication filter, JAAS realm: "activemq" authorized role(s): "amq" role principal classes: "org.apache.activemq.artemis.spi.core.security.jaas.RolePrincipal"
+2024-07-17 14:48:50,389 INFO  [io.hawt.web.auth.LoginRedirectFilter] Hawtio loginRedirectFilter is using 1800 sec. HttpSession timeout
+2024-07-17 14:48:50,487 INFO  [org.apache.activemq.artemis] AMQ241001: HTTP Server started at http://0.0.0.0:8161
+2024-07-17 14:48:50,488 INFO  [org.apache.activemq.artemis] AMQ241002: Artemis Jolokia REST API available at http://0.0.0.0:8161/console/jolokia
+2024-07-17 14:48:50,489 INFO  [org.apache.activemq.artemis] AMQ241004: Artemis Console available at http://0.0.0.0:8161/console
+2024-07-17 15:00:22,255 INFO  [io.hawt.web.auth.keycloak.KeycloakServlet] Keycloak integration is disabled
+2024-07-17 15:00:22,765 INFO  [io.hawt.web.auth.LoginServlet] Hawtio login is using 1800 sec. HttpSession timeout
+2024-07-17 15:00:22,898 INFO  [io.hawt.web.proxy.ProxyServlet] Proxy servlet is disabled
+2024-07-17 15:00:22,973 INFO  [io.hawt.web.servlets.JolokiaConfiguredAgentServlet] Jolokia overridden property: [key=policyLocation, value=file:/var/lib/artemis-instance/./etc/jolokia-access.xml]
+2024-07-17 15:26:02,944 INFO  [io.hawt.web.auth.LoginServlet] Logging in user: admin
+2024-07-17 15:36:27,980 INFO  [org.apache.activemq.artemis] AMQ241005: Stopping embedded web server
+2024-07-17 15:36:28,000 INFO  [io.hawt.HawtioContextListener] Destroying hawtio services
+2024-07-17 15:36:28,609 INFO  [org.apache.activemq.hawtio.plugin.PluginContextListener] Destroyed artemis-plugin plugin
+2024-07-17 15:36:28,956 INFO  [org.apache.activemq.hawtio.branding.PluginContextListener] Destroyed activemq-branding plugin
+2024-07-17 15:36:29,347 INFO  [org.apache.activemq.artemis] AMQ241006: Stopped embedded web server
+2024-07-17 15:36:29,348 INFO  [org.apache.activemq.artemis.core.server] AMQ221002: Apache ActiveMQ Artemis Message Broker version 2.35.0 [3734ec0b-4442-11ef-bb6d-0242ac140002] stopped, uptime 47 minutes
+2024-07-17 15:44:50,371 INFO  [org.apache.activemq.artemis.integration.bootstrap] AMQ101000: Starting ActiveMQ Artemis Server version 2.35.0
+2024-07-17 15:44:50,490 INFO  [org.apache.activemq.artemis.core.server] AMQ221000: Primary message broker is starting with configuration Broker Configuration (clustered=false,journalDirectory=data/journal,bindingsDirectory=data/bindings,largeMessagesDirectory=data/large-messages,pagingDirectory=data/paging)
+2024-07-17 15:44:50,600 INFO  [org.apache.activemq.artemis.core.server] AMQ221012: Using AIO Journal
+2024-07-17 15:44:50,888 INFO  [org.apache.activemq.artemis.core.server] AMQ221057: Global Max Size is being adjusted to 1/2 of the JVM max size (-Xmx). being defined as 1073741824
+2024-07-17 15:44:50,992 INFO  [org.apache.activemq.artemis.core.server] AMQ221043: Protocol module found: [artemis-server]. Adding protocol support for: CORE
+2024-07-17 15:44:50,995 INFO  [org.apache.activemq.artemis.core.server] AMQ221043: Protocol module found: [artemis-amqp-protocol]. Adding protocol support for: AMQP
+2024-07-17 15:44:50,997 INFO  [org.apache.activemq.artemis.core.server] AMQ221043: Protocol module found: [artemis-hornetq-protocol]. Adding protocol support for: HORNETQ
+2024-07-17 15:44:50,998 INFO  [org.apache.activemq.artemis.core.server] AMQ221043: Protocol module found: [artemis-mqtt-protocol]. Adding protocol support for: MQTT
+2024-07-17 15:44:50,999 INFO  [org.apache.activemq.artemis.core.server] AMQ221043: Protocol module found: [artemis-openwire-protocol]. Adding protocol support for: OPENWIRE
+2024-07-17 15:44:51,001 INFO  [org.apache.activemq.artemis.core.server] AMQ221043: Protocol module found: [artemis-stomp-protocol]. Adding protocol support for: STOMP
+2024-07-17 15:44:51,118 INFO  [org.apache.activemq.artemis.core.server] AMQ221034: Waiting indefinitely to obtain primary lock
+2024-07-17 15:44:51,119 INFO  [org.apache.activemq.artemis.core.server] AMQ221035: Primary Server Obtained primary lock
+2024-07-17 15:44:52,195 INFO  [org.apache.activemq.artemis.core.server] AMQ221080: Deploying address DLQ supporting [ANYCAST]
+2024-07-17 15:44:52,199 INFO  [org.apache.activemq.artemis.core.server] AMQ221003: Deploying ANYCAST queue DLQ on address DLQ
+2024-07-17 15:44:52,209 INFO  [org.apache.activemq.artemis.core.server] AMQ221080: Deploying address ExpiryQueue supporting [ANYCAST]
+2024-07-17 15:44:52,209 INFO  [org.apache.activemq.artemis.core.server] AMQ221003: Deploying ANYCAST queue ExpiryQueue on address ExpiryQueue
+2024-07-17 15:44:53,489 INFO  [org.apache.activemq.artemis.core.server] AMQ221020: Started EPOLL Acceptor at 0.0.0.0:61616 for protocols [CORE,MQTT,AMQP,STOMP,HORNETQ,OPENWIRE]
+2024-07-17 15:44:53,588 INFO  [org.apache.activemq.artemis.core.server] AMQ221020: Started EPOLL Acceptor at 0.0.0.0:5445 for protocols [HORNETQ,STOMP]
+2024-07-17 15:44:53,613 INFO  [org.apache.activemq.artemis.core.server] AMQ221020: Started EPOLL Acceptor at 0.0.0.0:5672 for protocols [AMQP]
+2024-07-17 15:44:53,693 INFO  [org.apache.activemq.artemis.core.server] AMQ221020: Started EPOLL Acceptor at 0.0.0.0:1883 for protocols [MQTT]
+2024-07-17 15:44:53,709 INFO  [org.apache.activemq.artemis.core.server] AMQ221020: Started EPOLL Acceptor at 0.0.0.0:61613 for protocols [STOMP]
+2024-07-17 15:44:53,716 INFO  [org.apache.activemq.artemis.core.server] AMQ221007: Server is now active
+2024-07-17 15:44:53,716 INFO  [org.apache.activemq.artemis.core.server] AMQ221001: Apache ActiveMQ Artemis Message Broker version 2.35.0 [0.0.0.0, nodeID=3734ec0b-4442-11ef-bb6d-0242ac140002] 
+2024-07-17 15:44:53,753 INFO  [org.apache.activemq.artemis] AMQ241003: Starting embedded web server
+2024-07-17 15:44:55,853 INFO  [org.apache.activemq.hawtio.branding.PluginContextListener] Initialized activemq-branding plugin
+2024-07-17 15:44:57,360 INFO  [org.apache.activemq.hawtio.plugin.PluginContextListener] Initialized artemis-plugin plugin
+2024-07-17 15:45:07,023 INFO  [io.hawt.HawtioContextListener] Initialising hawtio services
+2024-07-17 15:45:07,072 INFO  [io.hawt.system.ConfigManager] Configuration will be discovered via system properties
+2024-07-17 15:45:07,089 INFO  [io.hawt.jmx.JmxTreeWatcher] Welcome to Hawtio 2.17.7
+2024-07-17 15:45:07,138 INFO  [io.hawt.web.auth.AuthenticationConfiguration] Starting hawtio authentication filter, JAAS realm: "activemq" authorized role(s): "amq" role principal classes: "org.apache.activemq.artemis.spi.core.security.jaas.RolePrincipal"
+2024-07-17 15:45:07,208 INFO  [io.hawt.web.auth.LoginRedirectFilter] Hawtio loginRedirectFilter is using 1800 sec. HttpSession timeout
+2024-07-17 15:45:07,315 INFO  [org.apache.activemq.artemis] AMQ241001: HTTP Server started at http://0.0.0.0:8161
+2024-07-17 15:45:07,316 INFO  [org.apache.activemq.artemis] AMQ241002: Artemis Jolokia REST API available at http://0.0.0.0:8161/console/jolokia
+2024-07-17 15:45:07,317 INFO  [org.apache.activemq.artemis] AMQ241004: Artemis Console available at http://0.0.0.0:8161/console
+2024-07-17 15:45:21,708 INFO  [io.hawt.web.servlets.JolokiaConfiguredAgentServlet] Jolokia overridden property: [key=policyLocation, value=file:/var/lib/artemis-instance/./etc/jolokia-access.xml]
+2024-07-17 15:45:22,579 INFO  [io.hawt.web.auth.LoginServlet] Hawtio login is using 1800 sec. HttpSession timeout
+2024-07-17 15:45:23,877 INFO  [io.hawt.web.auth.keycloak.KeycloakServlet] Keycloak integration is disabled
+2024-07-17 15:48:07,055 INFO  [io.hawt.web.proxy.ProxyServlet] Proxy servlet is disabled
+2024-07-17 15:50:20,893 INFO  [io.hawt.web.auth.LoginServlet] Logging in user: admin
+2024-07-17 16:21:21,306 INFO  [io.hawt.web.auth.SessionExpiryFilter] Expiring session due to inactivity
+2024-07-17 16:27:33,323 INFO  [org.apache.activemq.artemis] AMQ241005: Stopping embedded web server
+2024-07-17 16:27:33,411 INFO  [io.hawt.HawtioContextListener] Destroying hawtio services
+2024-07-17 16:27:34,148 INFO  [org.apache.activemq.hawtio.plugin.PluginContextListener] Destroyed artemis-plugin plugin
+2024-07-17 16:27:34,546 INFO  [org.apache.activemq.hawtio.branding.PluginContextListener] Destroyed activemq-branding plugin
+2024-07-17 16:27:34,985 INFO  [org.apache.activemq.artemis] AMQ241006: Stopped embedded web server
+2024-07-17 16:27:34,994 INFO  [org.apache.activemq.artemis.core.server] AMQ221002: Apache ActiveMQ Artemis Message Broker version 2.35.0 [3734ec0b-4442-11ef-bb6d-0242ac140002] stopped, uptime 42 minutes
+2024-07-17 16:29:31,331 INFO  [org.apache.activemq.artemis.integration.bootstrap] AMQ101000: Starting ActiveMQ Artemis Server version 2.35.0
+2024-07-17 16:29:31,483 INFO  [org.apache.activemq.artemis.core.server] AMQ221000: Primary message broker is starting with configuration Broker Configuration (clustered=false,journalDirectory=data/journal,bindingsDirectory=data/bindings,largeMessagesDirectory=data/large-messages,pagingDirectory=data/paging)
+2024-07-17 16:29:31,680 INFO  [org.apache.activemq.artemis.core.server] AMQ221012: Using AIO Journal
+2024-07-17 16:29:32,121 INFO  [org.apache.activemq.artemis.core.server] AMQ221057: Global Max Size is being adjusted to 1/2 of the JVM max size (-Xmx). being defined as 1073741824
+2024-07-17 16:29:32,323 INFO  [org.apache.activemq.artemis.core.server] AMQ221043: Protocol module found: [artemis-server]. Adding protocol support for: CORE
+2024-07-17 16:29:32,325 INFO  [org.apache.activemq.artemis.core.server] AMQ221043: Protocol module found: [artemis-amqp-protocol]. Adding protocol support for: AMQP
+2024-07-17 16:29:32,326 INFO  [org.apache.activemq.artemis.core.server] AMQ221043: Protocol module found: [artemis-hornetq-protocol]. Adding protocol support for: HORNETQ
+2024-07-17 16:29:32,327 INFO  [org.apache.activemq.artemis.core.server] AMQ221043: Protocol module found: [artemis-mqtt-protocol]. Adding protocol support for: MQTT
+2024-07-17 16:29:32,328 INFO  [org.apache.activemq.artemis.core.server] AMQ221043: Protocol module found: [artemis-openwire-protocol]. Adding protocol support for: OPENWIRE
+2024-07-17 16:29:32,329 INFO  [org.apache.activemq.artemis.core.server] AMQ221043: Protocol module found: [artemis-stomp-protocol]. Adding protocol support for: STOMP
+2024-07-17 16:29:32,460 INFO  [org.apache.activemq.artemis.core.server] AMQ221034: Waiting indefinitely to obtain primary lock
+2024-07-17 16:29:32,461 INFO  [org.apache.activemq.artemis.core.server] AMQ221035: Primary Server Obtained primary lock
+2024-07-17 16:29:33,725 INFO  [org.apache.activemq.artemis.core.server] AMQ221080: Deploying address DLQ supporting [ANYCAST]
+2024-07-17 16:29:33,729 INFO  [org.apache.activemq.artemis.core.server] AMQ221003: Deploying ANYCAST queue DLQ on address DLQ
+2024-07-17 16:29:33,737 INFO  [org.apache.activemq.artemis.core.server] AMQ221080: Deploying address ExpiryQueue supporting [ANYCAST]
+2024-07-17 16:29:33,738 INFO  [org.apache.activemq.artemis.core.server] AMQ221003: Deploying ANYCAST queue ExpiryQueue on address ExpiryQueue
+2024-07-17 16:29:35,559 INFO  [org.apache.activemq.artemis.core.server] AMQ221020: Started EPOLL Acceptor at 0.0.0.0:61616 for protocols [CORE,MQTT,AMQP,STOMP,HORNETQ,OPENWIRE]
+2024-07-17 16:29:35,732 INFO  [org.apache.activemq.artemis.core.server] AMQ221020: Started EPOLL Acceptor at 0.0.0.0:5445 for protocols [HORNETQ,STOMP]
+2024-07-17 16:29:35,757 INFO  [org.apache.activemq.artemis.core.server] AMQ221020: Started EPOLL Acceptor at 0.0.0.0:5672 for protocols [AMQP]
+2024-07-17 16:29:36,170 INFO  [org.apache.activemq.artemis.core.server] AMQ221020: Started EPOLL Acceptor at 0.0.0.0:1883 for protocols [MQTT]
+2024-07-17 16:29:36,234 INFO  [org.apache.activemq.artemis.core.server] AMQ221020: Started EPOLL Acceptor at 0.0.0.0:61613 for protocols [STOMP]
+2024-07-17 16:29:36,240 INFO  [org.apache.activemq.artemis.core.server] AMQ221007: Server is now active
+2024-07-17 16:29:36,241 INFO  [org.apache.activemq.artemis.core.server] AMQ221001: Apache ActiveMQ Artemis Message Broker version 2.35.0 [0.0.0.0, nodeID=3734ec0b-4442-11ef-bb6d-0242ac140002] 
+2024-07-17 16:29:36,279 INFO  [org.apache.activemq.artemis] AMQ241003: Starting embedded web server
+2024-07-17 16:29:38,716 INFO  [org.apache.activemq.hawtio.branding.PluginContextListener] Initialized activemq-branding plugin
+2024-07-17 16:29:40,373 INFO  [org.apache.activemq.hawtio.plugin.PluginContextListener] Initialized artemis-plugin plugin
+2024-07-17 16:29:48,740 INFO  [io.hawt.HawtioContextListener] Initialising hawtio services
+2024-07-17 16:29:48,776 INFO  [io.hawt.system.ConfigManager] Configuration will be discovered via system properties
+2024-07-17 16:29:48,790 INFO  [io.hawt.jmx.JmxTreeWatcher] Welcome to Hawtio 2.17.7
+2024-07-17 16:29:48,832 INFO  [io.hawt.web.auth.AuthenticationConfiguration] Starting hawtio authentication filter, JAAS realm: "activemq" authorized role(s): "amq" role principal classes: "org.apache.activemq.artemis.spi.core.security.jaas.RolePrincipal"
+2024-07-17 16:29:48,885 INFO  [io.hawt.web.auth.LoginRedirectFilter] Hawtio loginRedirectFilter is using 1800 sec. HttpSession timeout
+2024-07-17 16:29:48,974 INFO  [org.apache.activemq.artemis] AMQ241001: HTTP Server started at http://0.0.0.0:8161
+2024-07-17 16:29:48,975 INFO  [org.apache.activemq.artemis] AMQ241002: Artemis Jolokia REST API available at http://0.0.0.0:8161/console/jolokia
+2024-07-17 16:29:48,976 INFO  [org.apache.activemq.artemis] AMQ241004: Artemis Console available at http://0.0.0.0:8161/console
+2024-07-17 16:32:03,252 INFO  [io.hawt.web.auth.keycloak.KeycloakServlet] Keycloak integration is disabled
+2024-07-17 16:32:06,354 INFO  [io.hawt.web.auth.LoginServlet] Hawtio login is using 1800 sec. HttpSession timeout
+2024-07-17 16:32:09,356 INFO  [io.hawt.web.proxy.ProxyServlet] Proxy servlet is disabled
+2024-07-17 16:32:10,297 INFO  [io.hawt.web.servlets.JolokiaConfiguredAgentServlet] Jolokia overridden property: [key=policyLocation, value=file:/var/lib/artemis-instance/./etc/jolokia-access.xml]
+2024-07-17 16:43:01,805 INFO  [org.apache.activemq.artemis] AMQ241005: Stopping embedded web server
+2024-07-17 16:43:01,905 INFO  [io.hawt.HawtioContextListener] Destroying hawtio services
+2024-07-17 16:43:02,544 INFO  [org.apache.activemq.hawtio.plugin.PluginContextListener] Destroyed artemis-plugin plugin
+2024-07-17 16:43:02,897 INFO  [org.apache.activemq.hawtio.branding.PluginContextListener] Destroyed activemq-branding plugin
+2024-07-17 16:43:03,315 INFO  [org.apache.activemq.artemis] AMQ241006: Stopped embedded web server
+2024-07-17 16:43:03,335 INFO  [org.apache.activemq.artemis.core.server] AMQ221002: Apache ActiveMQ Artemis Message Broker version 2.35.0 [3734ec0b-4442-11ef-bb6d-0242ac140002] stopped, uptime 13 minutes
+2024-07-17 16:45:15,730 INFO  [org.apache.activemq.artemis.integration.bootstrap] AMQ101000: Starting ActiveMQ Artemis Server version 2.35.0
+2024-07-17 16:45:15,874 INFO  [org.apache.activemq.artemis.core.server] AMQ221000: Primary message broker is starting with configuration Broker Configuration (clustered=false,journalDirectory=data/journal,bindingsDirectory=data/bindings,largeMessagesDirectory=data/large-messages,pagingDirectory=data/paging)
+2024-07-17 16:45:16,021 INFO  [org.apache.activemq.artemis.core.server] AMQ221012: Using AIO Journal
+2024-07-17 16:45:16,338 INFO  [org.apache.activemq.artemis.core.server] AMQ221057: Global Max Size is being adjusted to 1/2 of the JVM max size (-Xmx). being defined as 1073741824
+2024-07-17 16:45:16,452 INFO  [org.apache.activemq.artemis.core.server] AMQ221043: Protocol module found: [artemis-server]. Adding protocol support for: CORE
+2024-07-17 16:45:16,455 INFO  [org.apache.activemq.artemis.core.server] AMQ221043: Protocol module found: [artemis-amqp-protocol]. Adding protocol support for: AMQP
+2024-07-17 16:45:16,456 INFO  [org.apache.activemq.artemis.core.server] AMQ221043: Protocol module found: [artemis-hornetq-protocol]. Adding protocol support for: HORNETQ
+2024-07-17 16:45:16,457 INFO  [org.apache.activemq.artemis.core.server] AMQ221043: Protocol module found: [artemis-mqtt-protocol]. Adding protocol support for: MQTT
+2024-07-17 16:45:16,458 INFO  [org.apache.activemq.artemis.core.server] AMQ221043: Protocol module found: [artemis-openwire-protocol]. Adding protocol support for: OPENWIRE
+2024-07-17 16:45:16,459 INFO  [org.apache.activemq.artemis.core.server] AMQ221043: Protocol module found: [artemis-stomp-protocol]. Adding protocol support for: STOMP
+2024-07-17 16:45:16,575 INFO  [org.apache.activemq.artemis.core.server] AMQ221034: Waiting indefinitely to obtain primary lock
+2024-07-17 16:45:16,576 INFO  [org.apache.activemq.artemis.core.server] AMQ221035: Primary Server Obtained primary lock
+2024-07-17 16:45:17,733 INFO  [org.apache.activemq.artemis.core.server] AMQ221080: Deploying address DLQ supporting [ANYCAST]
+2024-07-17 16:45:17,737 INFO  [org.apache.activemq.artemis.core.server] AMQ221003: Deploying ANYCAST queue DLQ on address DLQ
+2024-07-17 16:45:17,744 INFO  [org.apache.activemq.artemis.core.server] AMQ221080: Deploying address ExpiryQueue supporting [ANYCAST]
+2024-07-17 16:45:17,745 INFO  [org.apache.activemq.artemis.core.server] AMQ221003: Deploying ANYCAST queue ExpiryQueue on address ExpiryQueue
+2024-07-17 16:45:19,048 INFO  [org.apache.activemq.artemis.core.server] AMQ221020: Started EPOLL Acceptor at 0.0.0.0:61616 for protocols [CORE,MQTT,AMQP,STOMP,HORNETQ,OPENWIRE]
+2024-07-17 16:45:19,167 INFO  [org.apache.activemq.artemis.core.server] AMQ221020: Started EPOLL Acceptor at 0.0.0.0:5445 for protocols [HORNETQ,STOMP]
+2024-07-17 16:45:19,185 INFO  [org.apache.activemq.artemis.core.server] AMQ221020: Started EPOLL Acceptor at 0.0.0.0:5672 for protocols [AMQP]
+2024-07-17 16:45:19,417 INFO  [org.apache.activemq.artemis.core.server] AMQ221020: Started EPOLL Acceptor at 0.0.0.0:1883 for protocols [MQTT]
+2024-07-17 16:45:19,823 INFO  [org.apache.activemq.artemis.core.server] AMQ221020: Started EPOLL Acceptor at 0.0.0.0:61613 for protocols [STOMP]
+2024-07-17 16:45:19,834 INFO  [org.apache.activemq.artemis.core.server] AMQ221007: Server is now active
+2024-07-17 16:45:19,835 INFO  [org.apache.activemq.artemis.core.server] AMQ221001: Apache ActiveMQ Artemis Message Broker version 2.35.0 [0.0.0.0, nodeID=3734ec0b-4442-11ef-bb6d-0242ac140002] 
+2024-07-17 16:45:19,885 INFO  [org.apache.activemq.artemis] AMQ241003: Starting embedded web server
+2024-07-17 16:45:22,911 INFO  [org.apache.activemq.hawtio.branding.PluginContextListener] Initialized activemq-branding plugin
+2024-07-17 16:45:24,400 INFO  [org.apache.activemq.hawtio.plugin.PluginContextListener] Initialized artemis-plugin plugin
+2024-07-17 16:45:34,425 INFO  [io.hawt.HawtioContextListener] Initialising hawtio services
+2024-07-17 16:45:34,467 INFO  [io.hawt.system.ConfigManager] Configuration will be discovered via system properties
+2024-07-17 16:45:34,482 INFO  [io.hawt.jmx.JmxTreeWatcher] Welcome to Hawtio 2.17.7
+2024-07-17 16:45:34,537 INFO  [io.hawt.web.auth.AuthenticationConfiguration] Starting hawtio authentication filter, JAAS realm: "activemq" authorized role(s): "amq" role principal classes: "org.apache.activemq.artemis.spi.core.security.jaas.RolePrincipal"
+2024-07-17 16:45:34,605 INFO  [io.hawt.web.auth.LoginRedirectFilter] Hawtio loginRedirectFilter is using 1800 sec. HttpSession timeout
+2024-07-17 16:45:34,692 INFO  [org.apache.activemq.artemis] AMQ241001: HTTP Server started at http://0.0.0.0:8161
+2024-07-17 16:45:34,694 INFO  [org.apache.activemq.artemis] AMQ241002: Artemis Jolokia REST API available at http://0.0.0.0:8161/console/jolokia
+2024-07-17 16:45:34,695 INFO  [org.apache.activemq.artemis] AMQ241004: Artemis Console available at http://0.0.0.0:8161/console
+2024-07-17 16:50:46,661 INFO  [io.hawt.web.auth.keycloak.KeycloakServlet] Keycloak integration is disabled
+2024-07-17 16:50:49,881 INFO  [io.hawt.web.auth.LoginServlet] Hawtio login is using 1800 sec. HttpSession timeout
+2024-07-17 16:50:52,335 INFO  [io.hawt.web.proxy.ProxyServlet] Proxy servlet is disabled
+2024-07-17 16:50:53,298 INFO  [io.hawt.web.servlets.JolokiaConfiguredAgentServlet] Jolokia overridden property: [key=policyLocation, value=file:/var/lib/artemis-instance/./etc/jolokia-access.xml]
+2024-07-17 16:52:09,870 INFO  [io.hawt.web.auth.LoginServlet] Logging in user: admin

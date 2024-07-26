@@ -9,7 +9,6 @@ import jakarta.ws.rs.core.Response;
 import org.eclipse.microprofile.reactive.messaging.Channel;
 import org.eclipse.microprofile.reactive.messaging.Emitter;
 import org.jboss.logging.Logger;
-
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Path("/api")
@@ -22,14 +21,12 @@ public class SocketResource {
 
     private final ObjectMapper objectMapper = new ObjectMapper();
 
-
     @POST
     @Path("/receive")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.TEXT_PLAIN)
     public String receiveMessage(String jsonMessage) {
-        // Retorna uma resposta simples indicando sucesso
-        System.out.println("\n\n" + jsonMessage + "\n\n");
+        LOGGER.info("Mensagem recebida: " + jsonMessage);
         return "Mensagem recebida com sucesso!";
     }
 
@@ -37,29 +34,30 @@ public class SocketResource {
     @Path("/data")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response receiveData(String jsonString) {
+        if (!ServiceState.isActive()) {
+            LOGGER.warn("A rota está desativada. Mensagem recebida será descartada.");
+            return Response.status(Response.Status.SERVICE_UNAVAILABLE)
+                           .entity("A rota está desativada no momento.")
+                           .build();
+        }
+
         LOGGER.infof("Recebendo JSON: %s", jsonString);
 
         try {
-            // Converte o JSON para o objeto EquipmentData
             EquipmentData data = objectMapper.readValue(jsonString, EquipmentData.class);
             LOGGER.infof("Dados convertidos para o objeto: %s", data);
 
-            // Log para verificação do estado do emitter antes do envio
-            LOGGER.info("Preparando para enviar os dados para o canal 'message-out'.");
+            emitter.send(data).whenComplete((result, ex) -> {
+                if (ex != null) {
+                    LOGGER.errorf("Erro ao enviar dados para o canal: %s", ex.getMessage());
+                } else {
+                    LOGGER.infof("Dados enviados com sucesso: %s", data);
+                }
+            });
 
-            // Envia os dados para o canal
-            emitter.send(data);
-
-            // Log após o envio bem-sucedido
-            LOGGER.infof("Dados enviados com sucesso: %s", data);
-
-            // Retorna resposta de sucesso
             return Response.ok().build();
         } catch (Exception e) {
-            // Log em caso de erro ao converter ou enviar dados
             LOGGER.errorf("Erro ao processar os dados: %s", e.getMessage());
-
-            // Retorna resposta de erro
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
                            .entity("Erro ao processar os dados")
                            .build();

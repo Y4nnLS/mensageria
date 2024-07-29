@@ -35,8 +35,9 @@ public class SocketResource {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response receiveData(String jsonString) {
         if (!ServiceState.isActive()) {
+            System.out.println(jsonString);
             LOGGER.warn("A rota está desativada. Mensagem recebida será descartada.");
-            return Response.status(Response.Status.SERVICE_UNAVAILABLE)
+            return Response.status(Response.Status.NOT_FOUND)
                            .entity("A rota está desativada no momento.")
                            .build();
         }

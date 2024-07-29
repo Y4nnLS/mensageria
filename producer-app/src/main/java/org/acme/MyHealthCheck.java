@@ -3,44 +3,74 @@ package org.acme;
 import org.eclipse.microprofile.health.HealthCheck;
 import org.eclipse.microprofile.health.HealthCheckResponse;
 import org.eclipse.microprofile.health.Readiness;
-
+import org.eclipse.microprofile.config.inject.ConfigProperty;
 import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
 import jakarta.jms.Connection;
 import jakarta.jms.ConnectionFactory;
 import jakarta.jms.JMSException;
 import jakarta.jms.Session;
 import org.apache.qpid.jms.JmsConnectionFactory;
+import org.jboss.logging.Logger;
+
+import io.quarkus.scheduler.Scheduled;
 
 @Readiness
 @ApplicationScoped
 public class MyHealthCheck implements HealthCheck {
 
-    private static final String BROKER_URL = "amqp://activemq:5672"; // Endereço do ActiveMQ no Docker
-    private static final String USERNAME = "admin";
-    private static final String PASSWORD = "admin";
+    @ConfigProperty(name = "mp.messaging.connector.smallrye-amqp.host")
+    String brokerHost;
+
+    @ConfigProperty(name = "mp.messaging.connector.smallrye-amqp.port")
+    int brokerPort;
+
+    @ConfigProperty(name = "mp.messaging.connector.smallrye-amqp.username")
+    String username;
+
+    @ConfigProperty(name = "mp.messaging.connector.smallrye-amqp.password")
+    String password;
 
     private static final int RETRY_INTERVAL_MS = 5000; // Intervalo de retry em milissegundos
-    private static final int MAX_RETRIES = 12; // Número máximo de tentativas
+    private static final int MAX_RETRIES = 3; // Número máximo de tentativas
+
+    private static final Logger LOGGER = Logger.getLogger(MyHealthCheck.class);
 
     @Override
     public HealthCheckResponse call() {
         boolean isUp = checkServiceHealth();
 
         if (isUp) {
+            LOGGER.info("\n\n\n\n entrou if \n\n\n\n");
             ServiceState.setActive(true);
             return HealthCheckResponse.up("ActiveMQ is up");
         } else {
+            LOGGER.info("\n\n\n\n entrou else \n\n\n\n");
             ServiceState.setActive(false);
             handleServiceDown();
             return HealthCheckResponse.down("ActiveMQ is down");
         }
     }
+    @Scheduled(every="5s") // Verifica a cada 5 segundos
+    public void scheduledHealthCheck() {
+        boolean isUp = checkServiceHealth();
+
+        if (isUp) {
+            LOGGER.info("ActiveMQ is up");
+            ServiceState.setActive(true);
+        } else {
+            LOGGER.info("ActiveMQ is down");
+            ServiceState.setActive(false);
+            // handleServiceDown();
+        }
+    }
 
     private boolean checkServiceHealth() {
         try {
-            ConnectionFactory connectionFactory = new JmsConnectionFactory(BROKER_URL);
+            String brokerUrl = String.format("amqp://%s:%d", brokerHost, brokerPort);
+            ConnectionFactory connectionFactory = new JmsConnectionFactory(brokerUrl);
 
-            try (Connection connection = connectionFactory.createConnection(USERNAME, PASSWORD)) {
+            try (Connection connection = connectionFactory.createConnection(username, password)) {
                 connection.start();
                 try (Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE)) {
                     return session != null;
@@ -52,28 +82,29 @@ public class MyHealthCheck implements HealthCheck {
     }
 
     private void handleServiceDown() {
-        System.out.println("ActiveMQ está 'down'. Tentando reconectar...");
+        LOGGER.info("ActiveMQ está 'down'. Tentando reconectar...");
 
         boolean isActiveMQUp = false;
         for (int attempt = 1; attempt <= MAX_RETRIES; attempt++) {
             try {
                 Thread.sleep(RETRY_INTERVAL_MS); // Espera antes da próxima tentativa
-    
+
                 if (checkServiceHealth()) {
                     isActiveMQUp = true;
                     break; // Sai do loop se a conexão for bem-sucedida
                 }
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt(); // Restaura o status de interrupção
-                System.out.println("Interrupção durante o retry: " + e.getMessage());
+                LOGGER.error("Interrupção durante o retry: " + e.getMessage());
             }
         }
 
         if (!isActiveMQUp) {
-            System.out.println("Não foi possível reconectar ao ActiveMQ após " + MAX_RETRIES + " tentativas.");
-            System.out.println("Aplicação está desativada.");
+            LOGGER.error("Não foi possível reconectar ao ActiveMQ após " + MAX_RETRIES + " tentativas.");
+            LOGGER.error("Aplicação está desativada.");
         } else {
-            System.out.println("ActiveMQ voltou a ficar ativo.");
+            LOGGER.info("ActiveMQ voltou a ficar ativo.");
+            ServiceState.setActive(true); // Reativa o serviço quando o ActiveMQ volta
         }
     }
 }

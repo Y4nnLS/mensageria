@@ -78,7 +78,7 @@ var Branding = (function (Branding) {
       "disabledRoutes": []
     };
 
-    aboutService.addProductInfo('Artemis', '2.35.0');
+    aboutService.addProductInfo('Artemis', '2.36.0');
     // Calling this function is required to apply the custom css and
     // favicon settings
     Core.applyBranding(configManager);

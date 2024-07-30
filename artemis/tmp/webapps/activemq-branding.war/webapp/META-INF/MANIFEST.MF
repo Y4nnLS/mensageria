@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Created-By: Apache Maven Bundle Plugin 5.1.9
 Build-Jdk-Spec: 11
-ActiveMQ-Version: 2.35.0(135,134,133,132,131,130,129,128,127,126,125,124
+ActiveMQ-Version: 2.36.0(135,134,133,132,131,130,129,128,127,126,125,124
  ,123,122)
 Bundle-ClassPath: .,WEB-INF/classes,WEB-INF/lib/hawtio-plugin-mbean-2.17
  .7.jar
@@ -13,14 +13,14 @@ Bundle-ManifestVersion: 2
 Bundle-Name: ActiveMQ Artemis HawtIO Branding
 Bundle-SymbolicName: org.apache.activemq.activemq-branding
 Bundle-Vendor: The Apache Software Foundation
-Bundle-Version: 2.35.0
+Bundle-Version: 2.36.0
 Embed-Dependency: *;scope=compile|runtime
 Embed-Directory: WEB-INF/lib
 Embed-Transitive: true
 Embedded-Artifacts: WEB-INF/lib/hawtio-plugin-mbean-2.17.7.jar;g="io.haw
  t";a="hawtio-plugin-mbean";v="2.17.7"
 Implementation-Title: HawtIO
-Implementation-Version: 2.35.0
+Implementation-Version: 2.36.0
 Import-Package: javax.servlet;version="[4.0,5)",java.lang;resolution:=op
  tional,java.lang.invoke;resolution:=optional,java.lang.management;resol
  ution:=optional,java.util;resolution:=optional,java.util.function;resol

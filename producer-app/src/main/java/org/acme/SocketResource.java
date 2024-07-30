@@ -1,14 +1,26 @@
 package org.acme;
 
 import jakarta.ws.rs.Consumes;
+import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
+import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
+
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.util.HashMap;
+import java.util.Map;
+
 import org.eclipse.microprofile.reactive.messaging.Channel;
 import org.eclipse.microprofile.reactive.messaging.Emitter;
 import org.jboss.logging.Logger;
+
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Path("/api")
@@ -20,6 +32,7 @@ public class SocketResource {
     Emitter<EquipmentData> emitter;
 
     private final ObjectMapper objectMapper = new ObjectMapper();
+    private static final String HEALTH_URL = "http://localhost:8083/api/q/health/ready";
 
     @POST
     @Path("/receive")
@@ -38,8 +51,8 @@ public class SocketResource {
             System.out.println(jsonString);
             LOGGER.warn("A rota está desativada. Mensagem recebida será descartada.");
             return Response.status(Response.Status.NOT_FOUND)
-                           .entity("A rota está desativada no momento.")
-                           .build();
+                    .entity("A rota está desativada no momento.")
+                    .build();
         }
 
         LOGGER.infof("Recebendo JSON: %s", jsonString);
@@ -60,8 +73,62 @@ public class SocketResource {
         } catch (Exception e) {
             LOGGER.errorf("Erro ao processar os dados: %s", e.getMessage());
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
-                           .entity("Erro ao processar os dados")
-                           .build();
+                    .entity("Erro ao processar os dados")
+                    .build();
         }
+    }
+
+    @GET
+    @Path("/health/status")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getHealthStatus() {
+        String healthStatus = fetchHealthStatus();
+        return Response.ok(healthStatus, MediaType.APPLICATION_JSON).build();
+    }
+
+    @GET
+    @Path("/status/{checkName}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getHealthCheckStatus(@PathParam("checkName") String checkName) {
+        try {
+            String healthStatus = fetchHealthStatus();
+            JsonNode healthStatusNode = objectMapper.readTree(healthStatus);
+            JsonNode checks = healthStatusNode.get("checks");
+
+            for (JsonNode check : checks) {
+                if (check.get("name").asText().equals(checkName)) {
+                    String checkStatus = check.get("status").asText();
+                    Map<String, String> response = new HashMap<>();
+                    response.put("status", checkStatus);
+                    return Response.ok(response).build();
+                }
+            }
+            return Response.ok("Não encontrado").build();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Erro ao processar o JSON").build();
+        }
+    }
+
+    private String fetchHealthStatus() {
+        try {
+            // Criando um cliente HTTP
+            HttpClient client = HttpClient.newHttpClient();
+
+            // Criando a requisição
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(URI.create(HEALTH_URL))
+                    .GET() // Método GET
+                    .build();
+
+            // Enviando a requisição e recebendo a resposta
+            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+            return response.body();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+
     }
 }

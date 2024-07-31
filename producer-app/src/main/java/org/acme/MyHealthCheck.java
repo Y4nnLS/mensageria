@@ -3,11 +3,13 @@ package org.acme;
 import org.eclipse.microprofile.health.HealthCheck;
 import org.eclipse.microprofile.health.HealthCheckResponse;
 import org.eclipse.microprofile.health.Readiness;
+import org.eclipse.microprofile.config.inject.ConfigProperty;
 import jakarta.enterprise.context.ApplicationScoped;
-import jakarta.inject.Inject;
 import jakarta.jms.Connection;
+import jakarta.jms.ConnectionFactory;
 import jakarta.jms.JMSException;
 import jakarta.jms.Session;
+import org.apache.qpid.jms.JmsConnectionFactory;
 
 import org.jboss.logging.Logger;
 
@@ -17,11 +19,19 @@ import io.quarkus.scheduler.Scheduled;
 @ApplicationScoped
 public class MyHealthCheck implements HealthCheck {
 
+    @ConfigProperty(name = "mp.messaging.connector.smallrye-amqp.host")
+    String brokerHost;
 
-    @Inject
-    JmsConnectionManager jmsConnectionManager;
+    @ConfigProperty(name = "mp.messaging.connector.smallrye-amqp.port")
+    int brokerPort;
 
-    private static final int RETRY_INTERVAL_MS = 5000; // Intervalo de retry em milissegundos
+    @ConfigProperty(name = "mp.messaging.connector.smallrye-amqp.username")
+    String username;
+
+    @ConfigProperty(name = "mp.messaging.connector.smallrye-amqp.password")
+    String password;
+
+    private static final int RETRY_INTERVAL_MS = 2000; // Intervalo de retry em milissegundos
     private static final int MAX_RETRIES = 3; // Número máximo de tentativas
 
     private static final Logger LOGGER = Logger.getLogger(MyHealthCheck.class);
@@ -31,14 +41,14 @@ public class MyHealthCheck implements HealthCheck {
         boolean isUp = checkServiceHealth();
 
         if (isUp) {
-            ServiceState.setActive(true);
+            ServiceState.setActiveMQActive(true);
             return HealthCheckResponse.named("ActiveMQ")
                     .up()
                     .withData("ActiveMQ", "is up")
                     .withData("description", "ActiveMQ is operational.")
                     .build();
         } else {
-            ServiceState.setActive(false);
+            ServiceState.setActiveMQActive(false);
             handleServiceDown();
             return HealthCheckResponse.named("ActiveMQ")
                     .down()
@@ -47,27 +57,31 @@ public class MyHealthCheck implements HealthCheck {
                     .build();
         }
     }
-    @Scheduled(every="5s") // Verifica a cada 5 segundos
+
+    @Scheduled(every = "6s") // Verifica a cada 5 segundos
     public void scheduledHealthCheck() {
         boolean isUp = checkServiceHealth();
 
         if (isUp) {
             LOGGER.info("ActiveMQ is up");
-            ServiceState.setActive(true);
+            ServiceState.setActiveMQActive(true);
         } else {
             LOGGER.info("ActiveMQ is down");
-            ServiceState.setActive(false);
+            ServiceState.setActiveMQActive(false);
             handleServiceDown();
         }
     }
 
     private boolean checkServiceHealth() {
         try {
-            Connection connection = jmsConnectionManager.getConnection();
-            try (Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE)) {
-                return session != null;
-            } finally {
-                connection.close(); // Fechar a conexão após o teste
+            String brokerUrl = String.format("amqp://%s:%d", brokerHost, brokerPort);
+            ConnectionFactory connectionFactory = new JmsConnectionFactory(brokerUrl);
+
+            try (Connection connection = connectionFactory.createConnection(username, password)) {
+                connection.start();
+                try (Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE)) {
+                    return session != null;
+                }
             }
         } catch (JMSException e) {
             return false;
@@ -97,7 +111,7 @@ public class MyHealthCheck implements HealthCheck {
             LOGGER.error("Aplicação está desativada.");
         } else {
             LOGGER.info("ActiveMQ voltou a ficar ativo.");
-            ServiceState.setActive(true); // Reativa o serviço quando o ActiveMQ volta
+            ServiceState.setActiveMQActive(true); // Reativa o serviço quando o ActiveMQ volta
         }
     }
 }

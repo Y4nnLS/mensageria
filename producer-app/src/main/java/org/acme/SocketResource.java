@@ -47,7 +47,7 @@ public class SocketResource {
     @Path("/data")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response receiveData(String jsonString) {
-        if (!ServiceState.isActive()) {
+        if (!ServiceState.isApplicationActive()) {
             System.out.println(jsonString);
             LOGGER.warn("A rota está desativada. Mensagem recebida será descartada.");
             return Response.status(Response.Status.NOT_FOUND)

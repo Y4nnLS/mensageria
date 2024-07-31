@@ -9,6 +9,7 @@ import jakarta.jms.Connection;
 import jakarta.jms.ConnectionFactory;
 import jakarta.jms.JMSException;
 import jakarta.jms.Session;
+
 import org.apache.qpid.jms.JmsConnectionFactory;
 
 import org.jboss.logging.Logger;
@@ -31,7 +32,7 @@ public class MyHealthCheck implements HealthCheck {
     @ConfigProperty(name = "mp.messaging.connector.smallrye-amqp.password")
     String password;
 
-    private static final int RETRY_INTERVAL_MS = 2000; // Intervalo de retry em milissegundos
+    private static final int RETRY_INTERVAL_MS = 5000; // Intervalo de retry em milissegundos
     private static final int MAX_RETRIES = 3; // Número máximo de tentativas
 
     private static final Logger LOGGER = Logger.getLogger(MyHealthCheck.class);
@@ -58,7 +59,7 @@ public class MyHealthCheck implements HealthCheck {
         }
     }
 
-    @Scheduled(every = "6s") // Verifica a cada 5 segundos
+    @Scheduled(every = "5s") // Verifica a cada 5 segundos
     public void scheduledHealthCheck() {
         boolean isUp = checkServiceHealth();
 

@@ -6,6 +6,7 @@ import org.eclipse.microprofile.health.HealthCheckResponse;
 import org.eclipse.microprofile.health.Readiness;
 // import org.eclipse.microprofile.config.inject.ConfigProperty;
 import jakarta.enterprise.context.ApplicationScoped;
+
 // import jakarta.inject.Inject;
 import org.jboss.logging.Logger;
 
@@ -28,7 +29,7 @@ public class PostgresHealthCheck implements HealthCheck {
     // @ConfigProperty(name = "quarkus.datasource.password")
     String password = "123";
 
-    private static final int RETRY_INTERVAL_MS = 2000; // Intervalo de retry em milissegundos
+    private static final int RETRY_INTERVAL_MS = 5000; // Intervalo de retry em milissegundos
     private static final int MAX_RETRIES = 3; // Número máximo de tentativas
 
     private static final Logger LOGGER = Logger.getLogger(PostgresHealthCheck.class);
@@ -54,7 +55,7 @@ public class PostgresHealthCheck implements HealthCheck {
         }
     }
 
-    @Scheduled(every = "6s") // Verifica a cada 5 segundos
+    @Scheduled(every = "5s") // Verifica a cada 5 segundos
     public void scheduledHealthCheck() {
         boolean isUp = checkServiceHealth();
 
@@ -69,12 +70,14 @@ public class PostgresHealthCheck implements HealthCheck {
     }
 
     private boolean checkServiceHealth() {
-        try (Connection connection = DriverManager.getConnection(jdbcUrl, username, password)) {
-            return connection != null && !connection.isClosed();
-        } catch (SQLException e) {
-            return false;
-        }
+    try (Connection connection = DriverManager.getConnection(jdbcUrl, username,
+    password)) {
+    return connection != null && !connection.isClosed();
+    } catch (SQLException e) {
+    return false;
     }
+    }
+    
 
     private void handleServiceDown() {
         LOGGER.info("PostgreSQL está 'down'. Tentando reconectar...");

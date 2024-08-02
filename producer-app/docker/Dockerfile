@@ -3,6 +3,14 @@ FROM amazoncorretto:21
 ENV TZ=America/Sao_Paulo
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
+# Adicionar o repositório Docker e instalar o Docker CLI
+RUN yum update -y && \
+    yum install -y \
+    amazon-linux-extras && \
+    amazon-linux-extras enable docker && \
+    yum install -y docker && \
+    yum clean all
+
 # Criar diretório para a aplicação
 RUN mkdir /opt/producer
 

@@ -13,8 +13,8 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.util.HashMap;
-import java.util.Map;
+// import java.util.HashMap;
+// import java.util.Map;
 
 import org.eclipse.microprofile.reactive.messaging.Channel;
 import org.eclipse.microprofile.reactive.messaging.Emitter;
@@ -97,10 +97,10 @@ public class SocketResource {
 
             for (JsonNode check : checks) {
                 if (check.get("name").asText().equals(checkName)) {
-                    String checkStatus = check.get("status").asText();
-                    Map<String, String> response = new HashMap<>();
-                    response.put("status", checkStatus);
-                    return Response.ok(response).build();
+                    // String checkStatus = check.get("status").asText();
+                    // Map<String, String> response = new HashMap<>();
+                    // response.put("status", checkStatus);
+                    return Response.ok(check).build();
                 }
             }
             return Response.ok("Não encontrado").build();

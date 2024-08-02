@@ -102,7 +102,6 @@ public class HeapMemoryHealthCheck implements HealthCheck {
 
             if (status == 1) {
                 LOGGER.info("HEAP CRITICAL");
-                triggerShutdown();
                 notifyUser("CRITICAL", usedMemory, maxMemory, formattedUsedMemoryPercentage, "Heap memory usage is critically high.");
             } else if (status == 2) {
                 LOGGER.info("HEAP WARNING");
@@ -131,6 +130,7 @@ public class HeapMemoryHealthCheck implements HealthCheck {
         if (usedMemoryPercentage >= CRITICAL_THRESHOLD) {
             notifyUser("CRITICAL", usedMemory, maxMemory, formattedUsedMemoryPercentage, "Heap memory usage is critically high.");
             status = 1;
+            triggerShutdown();
         } else if (usedMemoryPercentage >= WARNING_THRESHOLD) {
             notifyUser("WARNING", usedMemory, maxMemory, formattedUsedMemoryPercentage, "Heap memory usage is high.");
             status = 2;
@@ -161,6 +161,7 @@ public class HeapMemoryHealthCheck implements HealthCheck {
             throw e;
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
+            triggerShutdown();
             LOGGER.error("Thread interrupted during memory simulation: " + e.getMessage());
         }
     }

@@ -12,14 +12,15 @@ public class MessageConsumer {
 
     private static final Logger LOGGER = Logger.getLogger(MessageConsumer.class);
 
+    // Método que consome mensagens do canal "message-out"
     @Incoming("message-out")
     @Transactional
     public void consume(JsonObject jsonObject) throws InterruptedException {
-        // Log a mensagem recebida como JsonObject
+        // Loga a mensagem recebida como JsonObject
         LOGGER.infof("Recebido JsonObject: %s", jsonObject.encode());
 
         try {
-            // Converte JsonObject para EquipmentData
+            // Converte o JsonObject para um objeto EquipmentData
             EquipmentData data = jsonObject.mapTo(EquipmentData.class);
             LOGGER.infof("Dados convertidos para o objeto: %s", data);
 
@@ -28,6 +29,7 @@ public class MessageConsumer {
             LOGGER.info("Dados salvos com sucesso no banco de dados");
 
         } catch (Exception e) {
+            // Loga qualquer erro que ocorra durante o processamento e armazenamento dos dados
             LOGGER.errorf("Erro ao processar e armazenar dados: %s", e.getMessage());
         }
     }

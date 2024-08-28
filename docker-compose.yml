@@ -51,12 +51,12 @@ services:
     restart: always
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8083/api/q/health/ready"]
-      interval: 20s
-      timeout: 10s
-      retries: 3
-      start_period: 10s
+    # healthcheck:
+    #   test: ["CMD", "curl", "-f", "http://localhost:8083/api/q/health/ready"]  # Comando para verificar a saúde do serviço
+    #   interval: 20s      # Intervalo entre verificações de saúde
+    #   timeout: 10s       # Tempo máximo para uma verificação de saúde
+    #   retries: 3         # Número de tentativas antes de considerar o serviço como falho
+    #   start_period: 10s  # Tempo de inicialização antes do início das verificações de saúde
 
   consumer-app:
     restart: always

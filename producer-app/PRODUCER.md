@@ -28,13 +28,13 @@ O **Producer App** é uma aplicação que publica mensagens em um broker ActiveM
 
 ## Endpoints da API
 
-### 1. `/api/receive`
+### 1. `/api/api/receive`
 
 - **Método**: `POST`
 - **Descrição**: Recebe uma mensagem JSON e confirma o recebimento.
 - **Resposta**: "Mensagem recebida com sucesso!" indica que a mensagem foi recebida corretamente.
 
-### 2. `/api/data`
+### 2. `/api/api/data`
 
 - **Método**: `POST`
 - **Descrição**: Recebe dados JSON e publica esses dados no canal de mensagens. Se a aplicação estiver desativada, a mensagem é descartada.
@@ -42,13 +42,13 @@ O **Producer App** é uma aplicação que publica mensagens em um broker ActiveM
   - `200 OK` se os dados foram processados e publicados com sucesso.
   - `500 Internal Server Error` se houver um problema ao processar os dados.
 
-### 3. `/api/health/status`
+### 3. `/api/api/health/status`
 
 - **Método**: `GET`
 - **Descrição**: Retorna o status de saúde da aplicação.
 - **Resposta**: JSON com informações sobre a saúde da aplicação.
 
-### 4. `/api/status/{checkName}`
+### 4. `/api/api/status/{checkName}`
 
 - **Método**: `GET`
 - **Descrição**: Retorna o status de um check de saúde específico baseado no nome fornecido.

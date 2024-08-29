@@ -5,10 +5,24 @@ import java.io.InputStreamReader;
 
 public class DockerContainerManager {
 
+    // Tentei reiniciar os containers utilizando uma biblioteca Docker e um Script.bat porém nenhum funcionou corretamente.
+    // por isso pensei em fazer programaticamente executando um comando como se eu estivesse rodando o comando docker restart <nome_do_container>
+    // dessa forma está funcionando corretamente o reinicio dos containers
+
+    /**
+     * Reinicia um contêiner Docker especificado pelo nome.
+     * 
+     * Este método utiliza o comando "docker restart" para reiniciar o contêiner
+     * e exibe a saída no console. Em caso de erro, exibe mensagens de erro
+     * apropriadas.
+     * 
+     * @param containerName O nome do contêiner Docker que deve ser reiniciado.
+     */
     public static void restartContainer(String containerName) {
         try {
             // Construindo o comando para reiniciar o container
             ProcessBuilder processBuilder = new ProcessBuilder("docker", "restart", containerName);
+            // Utiliza ProcessBuilder para construir o comando de reinício do Docker. O comando executado é equivalente a docker restart <containerName> no terminal.
             
             // Iniciando o processo
             Process process = processBuilder.start();

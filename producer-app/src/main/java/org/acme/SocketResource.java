@@ -21,7 +21,7 @@ import org.jboss.logging.Logger;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-@Path("/api") // Define o caminho base para os recursos desta classe
+@Path("/api")
 public class SocketResource {
 
     private static final Logger LOGGER = Logger.getLogger(SocketResource.class);
@@ -32,6 +32,18 @@ public class SocketResource {
     private final ObjectMapper objectMapper = new ObjectMapper(); // Para conversão entre JSON e objetos
     private static final String HEALTH_URL = "http://localhost:8083/api/q/health/ready"; // URL para verificar o status de saúde
 
+    /**
+     * È apenas uma rota de teste que criei para verificar se estava recebendo as mensagens corretamente.
+     * 
+     * Recebe uma mensagem JSON e retorna uma confirmação de recebimento.
+     * 
+     * Este método é responsável por receber mensagens no formato JSON e
+     * registrar essas mensagens no log. A resposta indica que a mensagem
+     * foi recebida com sucesso.
+     * 
+     * @param jsonMessage A mensagem recebida em formato JSON.
+     * @return Uma confirmação de que a mensagem foi recebida com sucesso.
+     */
     @POST
     @Path("/receive") // Define o caminho para este método POST
     @Consumes(MediaType.APPLICATION_JSON) // Define que o método consome JSON
@@ -41,6 +53,17 @@ public class SocketResource {
         return "Mensagem recebida com sucesso!"; // Retorna uma mensagem de sucesso
     }
 
+    /**
+     * Recebe dados em formato JSON, os converte para um objeto e os envia
+     * para um canal de mensagens.
+     * 
+     * Este método processa o JSON recebido, converte-o para um objeto
+     * `EquipmentData`, e envia esse objeto para um canal de mensagens.
+     * Se a aplicação estiver desativada, a mensagem será descartada.
+     * 
+     * @param jsonString A string JSON representando os dados recebidos.
+     * @return Uma resposta indicando o sucesso ou falha no processamento.
+     */
     @POST
     @Path("/data") // Define o caminho para este método POST
     @Consumes(MediaType.APPLICATION_JSON) // Define que o método consome JSON
@@ -76,6 +99,14 @@ public class SocketResource {
         }
     }
 
+    /**
+     * Obtém o status de saúde da aplicação.
+     * 
+     * Este método faz uma requisição para um endpoint de saúde e retorna
+     * o status de saúde como JSON.
+     * 
+     * @return Uma resposta contendo o status de saúde da aplicação em formato JSON.
+     */
     @GET
     @Path("/health/status") // Define o caminho para este método GET
     @Produces(MediaType.APPLICATION_JSON) // Define que o método produz JSON
@@ -84,6 +115,16 @@ public class SocketResource {
         return Response.ok(healthStatus, MediaType.APPLICATION_JSON).build(); // Retorna o status de saúde
     }
 
+    /**
+     * Obtém o status de uma verificação específica de saúde.
+     * 
+     * Este método faz uma requisição para um endpoint de saúde, procura
+     * por uma verificação específica pelo nome, e retorna o status dessa
+     * verificação.
+     * 
+     * @param checkName O nome da verificação de saúde para a qual o status deve ser retornado.
+     * @return Uma resposta contendo o status da verificação solicitada.
+     */
     @GET
     @Path("/status/{checkName}") // Define o caminho para este método GET, com um parâmetro de caminho
     @Produces(MediaType.APPLICATION_JSON) // Define que o método produz JSON
@@ -105,6 +146,14 @@ public class SocketResource {
         }
     }
 
+    /**
+     * Faz uma requisição HTTP para obter o status de saúde da aplicação.
+     * 
+     * Este método cria um cliente HTTP, envia uma requisição GET para um
+     * endpoint de saúde, e retorna o corpo da resposta.
+     * 
+     * @return O corpo da resposta da requisição GET ao endpoint de saúde, ou null se houver um erro.
+     */
     private String fetchHealthStatus() {
         try {
             // Criando um cliente HTTP

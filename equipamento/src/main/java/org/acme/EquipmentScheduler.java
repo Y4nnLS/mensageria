@@ -14,6 +14,11 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * A classe EquipmentScheduler é responsável por agendar tarefas de envio de dados
+ * e reenvio de mensagens falhadas. Utiliza o Quarkus Scheduler para executar tarefas
+ * periodicamente.
+ */
 @ApplicationScoped
 public class EquipmentScheduler {
 
@@ -25,8 +30,42 @@ public class EquipmentScheduler {
     // Lista para armazenar mensagens que falharam ao ser enviadas
     private final List<EquipmentData> failedMessages = new LinkedList<>();
 
-    // Método agendado para ser executado a cada 1 minuto
+    // Contador para gerar valores em ordem crescente
+    // isso é para testes para ver se nenhuma mensagem está sendo perdida quando o activeMQ ou o banco de dados cai
+    private int currentValue = 0;
+
+    /**
+     * Método agendado para ser executado a cada 1 minuto. Gera um valor crescente,
+     * cria um objeto EquipmentData e tenta enviar os dados para o endpoint especificado.
+     */
     @Scheduled(every = "1m")
+    public void sendSequentialValue() {
+        // Gera um valor crescente
+        int value = currentValue++;
+        
+        // Obtém a data e hora atual formatada
+        LocalDateTime now = LocalDateTime.now().withSecond(0);
+        String formattedDate = now.format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss"));
+
+        // Cria um objeto EquipmentData com o valor gerado e a data/hora formatada
+        EquipmentData data = new EquipmentData(value, formattedDate);
+        LOGGER.infof("Enviando dados: %s", data);
+
+        try {
+            // Envia os dados para o endpoint do Producer App
+            sendJsonData(TARGET_URL, data);
+            LOGGER.infof("Dados enviados com sucesso: %s", data);
+        } catch (Exception e) {
+            // Se ocorrer uma exceção, adiciona os dados à lista de mensagens falhadas
+            LOGGER.errorf("Erro ao enviar dados: %s", e.getMessage());
+            failedMessages.add(data);
+        }
+    }
+    /**
+     * Método agendado para ser executado a cada 1 minuto. Gera um valor aleatório,
+     * cria um objeto EquipmentData e tenta enviar os dados para o endpoint especificado.
+     */
+    // @Scheduled(every = "1m")
     public void sendRandomValue() {
         // Gera um valor aleatório
         Random random = new Random();
@@ -51,7 +90,10 @@ public class EquipmentScheduler {
         }
     }
 
-    // Método agendado para tentar reenviar mensagens falhadas a cada 1 minuto
+    /**
+     * Método agendado para tentar reenviar mensagens falhadas a cada 1 minuto.
+     * Reenvia as mensagens que não foram enviadas com sucesso anteriormente.
+     */
     @Scheduled(every = "1m")
     public void retryFailedMessages() {
         LOGGER.info("Tentando reenviar mensagens falhadas...");
@@ -71,7 +113,13 @@ public class EquipmentScheduler {
         }
     }
 
-    // Método para enviar dados em formato JSON para o endpoint especificado
+    /**
+     * Envia os dados em formato JSON para o endpoint especificado.
+     *
+     * @param targetUrl URL do endpoint para onde os dados serão enviados
+     * @param data Objeto EquipmentData contendo os dados a serem enviados
+     * @throws Exception Se ocorrer um erro ao enviar os dados
+     */
     private void sendJsonData(String targetUrl, EquipmentData data) throws Exception {
         URI uri = URI.create(targetUrl);
         URL url = uri.toURL();
@@ -98,9 +146,14 @@ public class EquipmentScheduler {
         }
     }
 
-    // Método para converter o objeto EquipmentData para uma string JSON
+    /**
+     * Converte o objeto EquipmentData para uma string JSON.
+     *
+     * @param data Objeto EquipmentData a ser convertido
+     * @return A representação JSON do objeto EquipmentData
+     */
     private String convertToJson(EquipmentData data) {
-        // Converte manualmente, mas pode-se usar bibliotecas como Jackson ou Gson
+        // Converte manualmente, mas pode-se usar bibliotecas como Jackson
         return String.format("{\"value\":%d,\"timestamp\":\"%s\"}", data.getValue(), data.getTimestamp());
     }
 }

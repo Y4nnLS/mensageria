@@ -5,8 +5,8 @@ import java.io.InputStreamReader;
 
 public class DockerContainerManager {
 
-    // Tentei reiniciar os containers utilizando uma biblioteca Docker e um Script.bat porém nenhum funcionou corretamente.
-    // por isso pensei em fazer programaticamente executando um comando como se eu estivesse rodando o comando docker restart <nome_do_container>
+    // Tentei reiniciar os containers utilizando uma biblioteca Docker e também um Script.bat porém nenhum funcionou corretamente.
+    // por isso pensei em fazer programaticamente executando um comando como se eu estivesse rodando o comando `docker restart <nome_do_container>` no terminal
     // dessa forma está funcionando corretamente o reinicio dos containers
 
     /**

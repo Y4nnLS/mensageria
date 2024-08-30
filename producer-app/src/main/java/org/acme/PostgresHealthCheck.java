@@ -39,6 +39,9 @@ public class PostgresHealthCheck implements HealthCheck {
      * de banco de dados PostgreSQL está operacional. Ele verifica se a conexão
      * com o banco de dados pode ser estabelecida com sucesso.
      * 
+     * O método call() é chamado sempre que o endpoint de prontidão (geralmente `/q/health/ready` ou `/health/ready`) é acessado. 
+     * Este endpoint é disponibilizado pelo servidor de aplicação para verificar se a aplicação está pronta para receber tráfego de produção.
+     * 
      * @return HealthCheckResponse indicando o estado do serviço.
      */
     @Override

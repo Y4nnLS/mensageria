@@ -37,6 +37,8 @@ public class EquipmentScheduler {
     /**
      * Método agendado para ser executado a cada 1 minuto. Gera um valor crescente,
      * cria um objeto EquipmentData e tenta enviar os dados para o endpoint especificado.
+     * 
+     * Foi utilizado para testes de reiniciar a aplicação e verificação de perda de mensagens
      */
     @Scheduled(every = "1m")
     public void sendSequentialValue() {

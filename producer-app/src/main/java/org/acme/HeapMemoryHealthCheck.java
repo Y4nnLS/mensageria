@@ -79,6 +79,9 @@ public class HeapMemoryHealthCheck implements HealthCheck {
      * saúde, especialmente em endpoints de prontidão (readiness) para verificar se
      * a aplicação está pronta para receber tráfego.
      * 
+     * O método call() é chamado sempre que o endpoint de prontidão (geralmente `/q/health/ready` ou `/health/ready`) é acessado. 
+     * Este endpoint é disponibilizado pelo servidor de aplicação para verificar se a aplicação está pronta para receber tráfego de produção.
+     * 
      * @return HealthCheckResponse indicando o estado de saúde atual da memória
      *         heap.
      */

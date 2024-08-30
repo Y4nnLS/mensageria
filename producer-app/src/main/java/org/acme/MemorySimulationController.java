@@ -16,8 +16,8 @@ import jakarta.inject.Inject;
  * que permitem iniciar e parar a simulação de erro de memória heap.
  * 
  * Esta classe expõe dois endpoints: 
- * 1. /memory/start: para iniciar a simulação de erro de memória.
- * 2. /memory/stop: para parar a simulação de erro de memória.
+ * 1. /api/memory/start: para iniciar a simulação de erro de memória.
+ * 2. /api/memory/stop: para parar a simulação de erro de memória.
  */
 @Path("/memory")
 public class MemorySimulationController {
